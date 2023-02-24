@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useState } from "react";
 import "./Graph.scss";
 
 const testData = [
@@ -2124,15 +2125,42 @@ export default function Graph() {
   //   console.log(testData);
 
   const calenderWeeks = testData.map((week) => {
-    console.log(week);
+    // console.log(week);
+
     const weekDays = week.contributionDays.map((day) => {
-      return <div class="calender-day">{day.contributionCount}</div>;
+      const dayCount = day.contributionCount;
+      let bgColorClass = "bg-day";
+
+      if (dayCount < 9 && dayCount > 0) {
+        bgColorClass = "bg-day--L2";
+      }
+      if (dayCount < 14 && dayCount > 9) {
+        bgColorClass = "bg-day--L3";
+      }
+      if (dayCount > 14) {
+        bgColorClass = "bg-day--L4";
+      }
+
+      return (
+        <div className={`calender-day ${bgColorClass}`}>
+          {/* {day.contributionCount} */}
+        </div>
+      );
     });
-    return <div class="calender-week">{weekDays}</div>;
+    return <div className="calender-week">{weekDays}</div>;
   });
   return (
     <div className="wrapper">
-      <div class="container">{calenderWeeks}</div>
+      <div className="container">
+        <div class="calender-day-label">
+          <div class="calender-day-label__name">Mon</div>
+          <div class="calender-day-label__name">Wed</div>
+
+          <div class="calender-day-label__name">Fri</div>
+        </div>
+
+        {calenderWeeks}
+      </div>
     </div>
   );
 }
