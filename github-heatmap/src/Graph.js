@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 import "./Graph.scss";
-
+import { getColor } from "./functions.js";
 const testData = [
   {
     contributionDays: [
@@ -2123,41 +2123,40 @@ const testData = [
 
 export default function Graph() {
   //   console.log(testData);
-
+  //   const [monthLabel, setmonthLabel] = useState({});
   const calenderWeeks = testData.map((week) => {
-    // console.log(week);
-
     const weekDays = week.contributionDays.map((day) => {
       const dayCount = day.contributionCount;
-      let bgColorClass = "bg-day";
+      // console.log(day);
+      //   const date = day.date.split("-")[2];
+      //   console.log(date);
 
-      if (dayCount < 9 && dayCount > 0) {
-        bgColorClass = "bg-day--L2";
-      }
-      if (dayCount < 14 && dayCount > 9) {
-        bgColorClass = "bg-day--L3";
-      }
-      if (dayCount > 14) {
-        bgColorClass = "bg-day--L4";
-      }
+      let bgColorClass = getColor(dayCount);
 
       return (
         <div className={`calender-day ${bgColorClass}`}>
           {/* {day.contributionCount} */}
+          {/* <div class="calender-day__text"></div> */}
         </div>
       );
     });
-    return <div className="calender-week">{weekDays}</div>;
+    return (
+      <>
+        <div className="calender-week__month">2</div>
+        <div className="calender-week">{weekDays}</div>
+      </>
+    );
   });
   return (
     <div className="wrapper">
       <div className="container">
-        <div class="calender-day-label">
-          <div class="calender-day-label__name">Mon</div>
-          <div class="calender-day-label__name">Wed</div>
+        <div className="calender-day-label">
+          <div className="calender-day-label__name">Mon</div>
+          <div className="calender-day-label__name">Wed</div>
 
-          <div class="calender-day-label__name">Fri</div>
+          <div className="calender-day-label__name">Fri</div>
         </div>
+        {/* <div className="calender-week__month">test</div> */}
 
         {calenderWeeks}
       </div>

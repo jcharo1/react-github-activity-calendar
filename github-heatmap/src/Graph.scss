@@ -86,7 +86,7 @@ html {
     align-items: center;
     justify-content: center;
     width: 100vw;
-    background-color: blanchedalmond;
+    background-color: rgb(51, 51, 51);
 
 
     height: 100vh;
@@ -97,16 +97,22 @@ html {
 
 
     display: grid;
-    // grid-template-rows: repeat(7, minmax(10px, min-content));
-    grid-template-columns: [first-col-start]min-content[first-col-end] repeat(53, 20px);
-    column-gap: 5px;
-    row-gap: 5px;
-    background-color: black;
-    padding: 30px 10px 10px 30px;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: [first-col-start]6rem[first-col-end] repeat(53, 2rem);
+    column-gap: .5rem;
+    row-gap: .5rem;
+    border-radius: 1rem;
+    // background-color: black;
+    padding: 3rem 2rem 2rem 3rem;
     // display:flex;
     // min-width: 800px;
     // min-height: 8px;
-
+    background: rgba(0, 0, 0, 0.674);
+    // border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
 
@@ -114,15 +120,16 @@ html {
 
 .calender-day-label {
     grid-column: first-col-start/first-col-end;
-
-
+    grid-row: 2/-1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
 
+    align-items: center;
 
     &__name {
+        transform: translateY(-50%);
         font-size: 1.6rem;
         color: white;
         // background-color: red;
@@ -130,16 +137,29 @@ html {
 }
 
 .calender-week {
-
+    grid-row: 2/-1;
     display: grid;
     grid-template-columns: 20px;
-    grid-template-rows: repeat(7, 20px);
+    grid-template-rows: repeat(7, minmax(20px, min-content));
 
     row-gap: 5px;
 
 
+    &__month {
+        color: white;
+        // grid-column: span 3;
+        grid-row: 1 / span 1;
+        font-size: 1.5rem;
+
+    }
 
 
+}
+
+
+.container:hover>.calender-week>.calender-day:not(:hover) {
+    transition: opacity .9s;
+    // opacity: .5;
 }
 
 .calender-day {
@@ -150,12 +170,27 @@ html {
     border-radius: 2px;
     border: 1px solid #5c5c5c;
     position: relative;
+    opacity: 1;
+
+    transition: all .9s;
+
+    &:hover {
+        filter: brightness(1.5);
+        transform: scale(1.2);
+
+    }
 
 
 
-    &:hover {}
+
+    // background: rgba(255, 255, 255, 0.2);
+    // border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    // backdrop-filter: blur(5px);
+    // -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 
 
-}
+
 
 }
