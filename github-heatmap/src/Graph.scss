@@ -120,7 +120,7 @@ html {
 
 .calender-day-label {
     grid-column: first-col-start/first-col-end;
-    grid-row: 2/-1;
+    grid-row: 1/-1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -138,16 +138,18 @@ html {
 
 .calender-week {
     grid-row: 2/-1;
+
     display: grid;
     grid-template-columns: 20px;
-    grid-template-rows: repeat(7, minmax(20px, min-content));
+    grid-template-rows: [first-col-start]minmax(20px, min-content)[first-col-end] repeat(6, minmax(20px, min-content));
 
     row-gap: 5px;
 
 
     &__month {
+        margin-left: 3rem;
         color: white;
-        // grid-column: span 3;
+        grid-column: span 4;
         grid-row: 1 / span 1;
         font-size: 1.5rem;
 
@@ -164,7 +166,7 @@ html {
 
 .calender-day {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 4px;
     color: white;
     text-align: center;
     border-radius: 2px;

@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 import "./Graph.scss";
-import { getColor } from "./functions.js";
+import { getColor, months, isFirstOfMonth } from "./functions.js";
 const testData = [
   {
     contributionDays: [
@@ -2122,12 +2122,38 @@ const testData = [
 ];
 
 export default function Graph() {
-  //   console.log(testData);
-  //   const [monthLabel, setmonthLabel] = useState({});
   const calenderWeeks = testData.map((week) => {
+    let displayMonth;
     const weekDays = week.contributionDays.map((day) => {
       const dayCount = day.contributionCount;
-      // console.log(day);
+      const dayDate = new Date(day.date);
+      //   console.log(dayDate);
+
+      const formattedDay = dayDate.getDate();
+      let month = dayDate.getMonth();
+      //   console.log(day);
+      //   console.log(dayDate);
+      //   console.log(month);
+      //   console.log(months[month]);
+      if (isFirstOfMonth(formattedDay)) {
+        // let outputmonth = months[month];
+        displayMonth = months[month];
+        // console.log(formattedDay);
+        // console.log(month);
+        console.log(displayMonth);
+
+        // add heading of month
+        // const month = dayDate.getMonth();
+        // console.log(day);
+        // console.log(dayDate);
+        // console.log(month);
+        // console.log(months[month]);
+      }
+      //   console.log(formatDay);
+      //   const month = dayDate.getMonth();
+      //   console.log(month);
+      //   console.log(months[month]);
+
       //   const date = day.date.split("-")[2];
       //   console.log(date);
 
@@ -2135,14 +2161,16 @@ export default function Graph() {
 
       return (
         <div className={`calender-day ${bgColorClass}`}>
-          {/* {day.contributionCount} */}
+          {formattedDay}
           {/* <div class="calender-day__text"></div> */}
         </div>
       );
     });
     return (
       <>
-        <div className="calender-week__month">2</div>
+        {displayMonth && (
+          <div className="calender-week__month">{displayMonth}</div>
+        )}
         <div className="calender-week">{weekDays}</div>
       </>
     );
