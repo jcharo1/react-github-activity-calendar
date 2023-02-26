@@ -232,7 +232,7 @@ div.remove-outline {
         // width: 100%;
         opacity: 1;
         visibility: visible;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 1);
         transform: translate(-49%, 0%)scaleY(1);
 
 
@@ -245,6 +245,7 @@ div.remove-outline {
         line-height: .9;
         // width: 200px;
         padding: 2px 5px;
+
         color: black;
         height: 20px;
         top: -20px;
