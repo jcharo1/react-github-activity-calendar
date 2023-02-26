@@ -104,7 +104,7 @@ html {
     row-gap: 4px;
     border-radius: 1rem;
 
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 2px 0 2px 0;
 
 
 
@@ -208,7 +208,6 @@ div.remove-outline {
 }
 
 .calender-day {
-
     cursor: pointer;
     font-size: 4px;
     color: white;
@@ -300,7 +299,7 @@ div.remove-outline {
 .bottom-row {
 
     grid-row: -1;
-    grid-column: 1 /span end;
+    grid-column: 2 /span end;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -321,4 +320,13 @@ div.remove-outline {
     justify-content: space-evenly;
     gap: 5px;
     align-items: center;
+}
+
+.github-mark {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-size: contain;
+    background-image: url(./github-mark-white.png);
+
 }

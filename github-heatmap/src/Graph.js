@@ -2175,8 +2175,8 @@ export default function Graph() {
 
         {calenderWeeks}
         <div className="bottom-row">
-          <span>500 contributions in the last year</span>
-
+          <span>500 contributions in the last year&#160;</span>
+          <div className="github-mark"></div>
           <div className="example-container">
             <span> Less </span>
             <div className={`calender-day bg-day example-size `}></div>
