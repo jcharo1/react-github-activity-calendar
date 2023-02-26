@@ -98,10 +98,10 @@ html {
 
 
     display: grid;
-    grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end];
+    grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr[last-row-end];
     grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
     column-gap: 4px;
-    row-gap: 2px;
+    row-gap: 4px;
     border-radius: 1rem;
 
     padding: 1rem 1rem 1rem 1rem;
@@ -109,9 +109,13 @@ html {
 
 
     @media only screen and (max-width: $bp-small) {
-        grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
-        column-gap: 4px;
+        // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
+        // column-gap: 4px;
+        overflow: hidden;
+        overflow-x: scroll;
 
+
+        // grid-template-columns: [first-col-start]4rem[first-col-end] repeat(auto-fill, 1rem);
     }
 
 
@@ -142,8 +146,8 @@ html {
     align-items: center;
 
     &__name {
-        transform: translateY(-50%);
-        font-size: 1.6rem;
+        transform: translateY(-90%);
+        font-size: 1rem;
         color: white;
         // background-color: red;
     }
@@ -173,23 +177,19 @@ html {
 
     &__month {
 
-        margin-left: 3rem;
+        margin-left: 1rem;
 
         color: white;
         // width: 8rem;
         grid-column: span 1;
         grid-row: 1 / span 1;
-        font-size: 1.5rem;
+        font-size: 1rem;
         display: grid;
         grid-template-columns: 4.5rem;
         column-gap: 10px;
 
 
 
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: space-between;
-        // align-items: center;
 
     }
 
@@ -294,4 +294,31 @@ div.remove-outline {
     //     row-gap: 2.5px;
     // }
 
+}
+
+
+.bottom-row {
+
+    grid-row: -1;
+    grid-column: 1 /span end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    padding: 0px 5px;
+    padding-top: 4px;
+    // background-color: red;
+}
+
+
+.example-size {
+    width: 10px;
+    height: 10px;
+}
+
+.example-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+    align-items: center;
 }

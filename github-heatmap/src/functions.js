@@ -1,7 +1,9 @@
 export function getColor(count) {
   if (count <= 0) {
     return "bg-day";
-  } else if (count > 0 && count < 9) {
+  } else if (count > 0 && count < 6) {
+    return "bg-day--L1";
+  } else if (count < 9) {
     return "bg-day--L2";
   } else if (count < 14) {
     return "bg-day--L3";

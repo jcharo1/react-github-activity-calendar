@@ -2120,14 +2120,15 @@ const testData = [
     __typename: "ContributionCalendarWeek",
   },
 ];
-console.log(testData.length);
+
 export default function Graph() {
   const calenderWeeks = testData.map((week) => {
     let displayMonth;
+
     const weekDays = week.contributionDays.map((day) => {
       const dayCount = day.contributionCount;
       const dayDate = new Date(day.date);
-      //   console.log(dayDate);
+
       const formattedYear = dayDate.getFullYear();
       const formattedDay = dayDate.getDate();
       const formattedDayName = dayDate.getDay();
@@ -2135,8 +2136,6 @@ export default function Graph() {
 
       if (isFirstOfMonth(formattedDay)) {
         displayMonth = months[month];
-
-        // console.log(displayMonth);
       }
       let bgOutline;
       let bgColorClass = getColor(dayCount);
@@ -2147,7 +2146,8 @@ export default function Graph() {
         <div className={`calender-day ${bgColorClass} ${bgOutline}`}>
           <div class="calender-day__text-container">
             <div class="calender-day__text">
-              {dayCount}&#160;contributions on {DayName[formattedDayName]},
+              {dayCount}&#160;contributions on {DayName[formattedDayName]}
+              ,&#160;
               {months[month]} {formattedDay}, {formattedYear}
             </div>
           </div>
@@ -2174,6 +2174,19 @@ export default function Graph() {
         {/* <div className="calender-week__month">test</div> */}
 
         {calenderWeeks}
+        <div className="bottom-row">
+          <span>500 contributions in the last year</span>
+
+          <div className="example-container">
+            <span> Less </span>
+            <div className={`calender-day bg-day example-size `}></div>
+            <div className={`calender-day bg-day--L1 example-size `}></div>
+            <div className={`calender-day bg-day--L2 example-size `}></div>
+            <div className={`calender-day bg-day--L3 example-size `}></div>
+            <div className={`calender-day bg-day--L4 example-size `}></div>
+            <span> More </span>
+          </div>
+        </div>
       </div>
     </div>
   );
