@@ -7,6 +7,7 @@ $color-calendar-graph-day-L4: #39d353;
 
 
 $small-tile-size: 15px;
+$small-tile-size-sm: 10px;
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
@@ -31,6 +32,7 @@ html {
 
     @media only screen and (max-width: $bp-medium) {
         font-size: 45%;
+
     }
 
 
@@ -110,6 +112,7 @@ html {
     @media only screen and (max-width: $bp-small) {
         // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
         // column-gap: 4px;
+        grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size-sm) [calender-end];
         overflow: hidden;
         overflow-x: scroll;
 
@@ -157,12 +160,18 @@ html {
 
     display: grid;
     grid-template-columns: $small-tile-size;
+
     grid-template-rows: [first-row-start]minmax($small-tile-size, min-content)[first-row-end] repeat(6, minmax($small-tile-size, min-content));
     // grid-template-columns: 10px;
     // grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
 
     row-gap: 2.5px;
 
+    @media only screen and (max-width: $bp-small) {
+        grid-template-rows: [first-row-start]minmax($small-tile-size-sm, min-content)[first-row-end] repeat(6, minmax($small-tile-size-sm, min-content));
+
+        grid-template-columns: $small-tile-size-sm;
+    }
 
 
 
@@ -216,9 +225,9 @@ div.remove-outline {
     position: relative;
     opacity: 1;
 
-    // outline: -.5px solid $color-calendar-graph-day-L1;
+    // outline: 1px inset $color-calendar-graph-day-L1;
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(33, 33, 33, 0.1);
     transition: all 10s;
     // z-index: 100;
 
