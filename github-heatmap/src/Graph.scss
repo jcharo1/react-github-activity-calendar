@@ -96,16 +96,16 @@ html {
 
 .container {
 
-
+    color: white;
     display: grid;
     grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr[last-row-end];
-    grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
+    grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, 10px) [calender-end];
     column-gap: 4px;
     row-gap: 4px;
     border-radius: 1rem;
 
-    padding: 2px 0 2px 0;
-
+    padding: 5px 10px 5px 10px;
+    // width: 50%;
 
 
     @media only screen and (max-width: $bp-small) {
@@ -137,18 +137,18 @@ html {
 
 .calender-day-label {
     grid-column: first-col-start/first-col-end;
-    grid-row: 2/-1;
+    grid-row: 1/-1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     align-items: center;
 
     &__name {
-        transform: translateY(-90%);
+        // transform: translateY(-90%);
         font-size: 1rem;
-        color: white;
+        transform: translateY(-30%);
         // background-color: red;
     }
 }
@@ -177,9 +177,9 @@ html {
 
     &__month {
 
-        margin-left: 1rem;
+        margin-left: 12px;
 
-        color: white;
+
         // width: 8rem;
         grid-column: span 1;
         grid-row: 1 / span 1;
@@ -210,7 +210,7 @@ div.remove-outline {
 .calender-day {
     cursor: pointer;
     font-size: 4px;
-    color: white;
+
     text-align: center;
     border-radius: 2px;
     // border: 1px solid currentColor;
@@ -303,8 +303,8 @@ div.remove-outline {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: white;
-    padding: 0px 5px;
+
+    // padding: 0px 5px;
     padding-top: 4px;
     // background-color: red;
 }

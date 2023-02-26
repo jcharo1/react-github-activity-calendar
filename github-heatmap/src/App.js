@@ -51,9 +51,19 @@ const GET_LOCATIONS = gql`
 // }
 
 export default function App() {
+  const { loading, error, data } = useQuery(GET_LOCATIONS, {
+    variables: { userName: "jcharo1" },
+  });
+  //   let formatData;
+  //   if (loading) {
+  //     let formatData = data.user.contributionsCollection.contributionCalender;
+  //   }
+
+  const formatData = data?.user.contributionsCollection.contributionCalendar;
+  console.log(formatData);
   return (
     <div>
-      <Graph />
+      <Graph data={formatData} />
 
       {/* <DisplayLocations /> */}
     </div>
