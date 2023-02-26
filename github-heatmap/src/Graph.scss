@@ -97,8 +97,8 @@ html {
 
 
     display: grid;
-    grid-template-rows: min-content min-content;
-    grid-template-columns: [first-col-start]6rem[first-col-end] repeat(53, 2rem);
+    grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end];
+    grid-template-columns: [first-col-start]6rem[first-col-end calender-start] repeat(53, 2rem) [calender-end];
     column-gap: .5rem;
     row-gap: .5rem;
     border-radius: 1rem;
@@ -120,7 +120,7 @@ html {
 
 .calender-day-label {
     grid-column: first-col-start/first-col-end;
-    grid-row: 1/-1;
+    grid-row: 2/-1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -147,11 +147,24 @@ html {
 
 
     &__month {
+
         margin-left: 3rem;
+
         color: white;
-        grid-column: span 4;
+        // width: 8rem;
+        grid-column: span 1;
         grid-row: 1 / span 1;
         font-size: 1.5rem;
+        display: grid;
+        grid-template-columns: 4.5rem;
+        column-gap: 10px;
+
+
+
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
+        // align-items: center;
 
     }
 

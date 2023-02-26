@@ -2120,7 +2120,7 @@ const testData = [
     __typename: "ContributionCalendarWeek",
   },
 ];
-
+console.log(testData.length);
 export default function Graph() {
   const calenderWeeks = testData.map((week) => {
     let displayMonth;
@@ -2131,31 +2131,12 @@ export default function Graph() {
 
       const formattedDay = dayDate.getDate();
       let month = dayDate.getMonth();
-      //   console.log(day);
-      //   console.log(dayDate);
-      //   console.log(month);
-      //   console.log(months[month]);
+
       if (isFirstOfMonth(formattedDay)) {
-        // let outputmonth = months[month];
         displayMonth = months[month];
-        // console.log(formattedDay);
-        // console.log(month);
-        console.log(displayMonth);
 
-        // add heading of month
-        // const month = dayDate.getMonth();
-        // console.log(day);
-        // console.log(dayDate);
-        // console.log(month);
-        // console.log(months[month]);
+        // console.log(displayMonth);
       }
-      //   console.log(formatDay);
-      //   const month = dayDate.getMonth();
-      //   console.log(month);
-      //   console.log(months[month]);
-
-      //   const date = day.date.split("-")[2];
-      //   console.log(date);
 
       let bgColorClass = getColor(dayCount);
 
@@ -2168,9 +2149,8 @@ export default function Graph() {
     });
     return (
       <>
-        {displayMonth && (
-          <div className="calender-week__month">{displayMonth}</div>
-        )}
+        <div className="calender-week__month">{displayMonth}</div>
+
         <div className="calender-week">{weekDays}</div>
       </>
     );
