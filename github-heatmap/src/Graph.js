@@ -50,6 +50,7 @@ export default function Graph(props) {
   return (
     <div className="wrapper">
       <div className="container">
+        <div className="github-mark"></div>
         <div className="calender-day-label">
           <div className="calender-day-label__name">Mon</div>
           <div className="calender-day-label__name">Wed</div>
@@ -57,14 +58,13 @@ export default function Graph(props) {
           <div className="calender-day-label__name">Fri</div>
         </div>
         {/* <div className="calender-week__month">test</div> */}
-
         {calenderWeeks}
         <div className="bottom-row">
           <span>
             {props?.data?.totalContributions} contributions in the last
             year&#160;
           </span>
-          <div className="github-mark"></div>
+
           <div className="example-container">
             <span> Less </span>
             <div className={`calender-day bg-day example-size `}></div>

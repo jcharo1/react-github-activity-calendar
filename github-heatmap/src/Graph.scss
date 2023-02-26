@@ -6,8 +6,7 @@ $color-calendar-graph-day-L3: #26a641;
 $color-calendar-graph-day-L4: #39d353;
 
 
-
-
+$small-tile-size: 15px;
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
@@ -99,7 +98,7 @@ html {
     color: white;
     display: grid;
     grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr[last-row-end];
-    grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, 10px) [calender-end];
+    grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size) [calender-end];
     column-gap: 4px;
     row-gap: 4px;
     border-radius: 1rem;
@@ -137,18 +136,18 @@ html {
 
 .calender-day-label {
     grid-column: first-col-start/first-col-end;
-    grid-row: 1/-1;
+    grid-row: 2/-1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     align-items: center;
 
     &__name {
         // transform: translateY(-90%);
         font-size: 1rem;
-        transform: translateY(-30%);
+        transform: translateY(-100%);
         // background-color: red;
     }
 }
@@ -157,22 +156,22 @@ html {
     grid-row: 2/-1;
 
     display: grid;
-    // grid-template-columns: 20px;
-    // grid-template-rows: [first-row-start]minmax(20px, min-content)[first-row-end] repeat(6, minmax(20px, min-content));
-    grid-template-columns: 10px;
-    grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
+    grid-template-columns: $small-tile-size;
+    grid-template-rows: [first-row-start]minmax($small-tile-size, min-content)[first-row-end] repeat(6, minmax($small-tile-size, min-content));
+    // grid-template-columns: 10px;
+    // grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
 
     row-gap: 2.5px;
 
 
 
 
-    @media only screen and (max-width: $bp-small) {
-        grid-template-columns: 10px;
-        grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
+    // @media only screen and (max-width: $bp-small) {
+    //     grid-template-columns: 10px;
+    //     grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
 
-        row-gap: 2.5px;
-    }
+    //     row-gap: 2.5px;
+    // }
 
 
     &__month {
@@ -225,6 +224,7 @@ div.remove-outline {
 
     &:hover {
         transition: all 10s;
+        // transform: scale(2);
     }
 
     &:hover>&__text-container {
@@ -323,10 +323,33 @@ div.remove-outline {
 }
 
 .github-mark {
+    grid-row: 1;
+    // grid-column: -1;
+    justify-self: center;
     display: inline-block;
     width: 12px;
     height: 12px;
     background-size: contain;
     background-image: url(./github-mark-white.png);
 
+}
+
+.container::-webkit-scrollbar {
+    height: 4px;
+    // width: 4px;
+    // background-color: red;
+}
+
+.container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+
+}
+
+.container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    // width: 10px;
+    width: 1px;
+    background-color: $color-calendar-graph-day-L2;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
