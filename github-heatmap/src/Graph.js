@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 import "./Graph.scss";
-import { getColor, months, isFirstOfMonth } from "./functions.js";
+import { getColor, months, isFirstOfMonth, DayName } from "./functions.js";
 const testData = [
   {
     contributionDays: [
@@ -2128,8 +2128,9 @@ export default function Graph() {
       const dayCount = day.contributionCount;
       const dayDate = new Date(day.date);
       //   console.log(dayDate);
-
+      const formattedYear = dayDate.getFullYear();
       const formattedDay = dayDate.getDate();
+      const formattedDayName = dayDate.getDay();
       let month = dayDate.getMonth();
 
       if (isFirstOfMonth(formattedDay)) {
@@ -2144,8 +2145,12 @@ export default function Graph() {
       }
       return (
         <div className={`calender-day ${bgColorClass} ${bgOutline}`}>
-          {/* {formattedDay} */}
-          {/* <div class="calender-day__text"></div> */}
+          <div class="calender-day__text-container">
+            <div class="calender-day__text">
+              {dayCount}&#160;contributions on {DayName[formattedDayName]},
+              {months[month]} {formattedDay}, {formattedYear}
+            </div>
+          </div>
         </div>
       );
     });

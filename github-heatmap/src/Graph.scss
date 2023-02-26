@@ -16,13 +16,6 @@ $bp-small: 37.5em; // 600px;
 
 
 
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
 
 html {
 
@@ -47,6 +40,14 @@ html {
 
 }
 
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
 
 
@@ -98,20 +99,32 @@ html {
 
     display: grid;
     grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end];
-    grid-template-columns: [first-col-start]6rem[first-col-end calender-start] repeat(53, 2rem) [calender-end];
-    column-gap: .5rem;
-    row-gap: .5rem;
+    grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
+    column-gap: 4px;
+    row-gap: 2px;
     border-radius: 1rem;
+
+    padding: 1rem 1rem 1rem 1rem;
+
+
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
+        column-gap: 4px;
+
+    }
+
+
+    // overflow: hidden;
+    // overflow-x: scroll;
+
     // background-color: black;
-    padding: 3rem 2rem 2rem 3rem;
-    // display:flex;
-    // min-width: 800px;
-    // min-height: 8px;
+
     background: rgba(0, 0, 0, 0.674);
     // border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    // backdrop-filter: blur(5px);
+    // -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
@@ -140,10 +153,22 @@ html {
     grid-row: 2/-1;
 
     display: grid;
-    grid-template-columns: 20px;
-    grid-template-rows: [first-col-start]minmax(20px, min-content)[first-col-end] repeat(6, minmax(20px, min-content));
+    // grid-template-columns: 20px;
+    // grid-template-rows: [first-row-start]minmax(20px, min-content)[first-row-end] repeat(6, minmax(20px, min-content));
+    grid-template-columns: 10px;
+    grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
 
-    row-gap: 5px;
+    row-gap: 2.5px;
+
+
+
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 10px;
+        grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
+
+        row-gap: 2.5px;
+    }
 
 
     &__month {
@@ -183,34 +208,89 @@ div.remove-outline {
 }
 
 .calender-day {
+
     cursor: pointer;
     font-size: 4px;
     color: white;
     text-align: center;
     border-radius: 2px;
-    border: 1px solid currentColor;
+    // border: 1px solid currentColor;
     position: relative;
     opacity: 1;
-    outline: 1px solid $color-calendar-graph-day-L1;
-    transition: all .9s;
+
+    // outline: -.5px solid $color-calendar-graph-day-L1;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 10s;
+    // z-index: 100;
 
     &:hover {
-        filter: brightness(1.5);
-        transform: scale(1.2);
+        transition: all 10s;
+    }
+
+    &:hover>&__text-container {
+        // width: 100%;
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(255, 255, 255, 0.9);
+        transform: translate(-49%, 0%)scaleY(1);
+
 
     }
 
+    &__text-container {
+        position: absolute;
+
+        // width: 0%;
+        line-height: .9;
+        // width: 200px;
+        padding: 2px 5px;
+        color: black;
+        height: 20px;
+        top: -20px;
+        left: 50%;
+        transform: translate(-49%, 100%) scaleY(0);
+        background-color: black;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        z-index: 2;
+        // outline: 5px inset $color-calendar-graph-day-L1;
+        visibility: hidden;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 75%, 49% 100%, 48% 75%, 0% 75%);
+        transition: all .5s;
+        // max-width: 1000px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        transform-origin: top;
+
+    }
+
+    &__text {
+        align-self: center;
+        // width: 200px;
+        // max-width: 1000px;
+        // height: 30px;
+        line-height: .9;
+
+        // z-index: 200000;
+        // opacity: 0;
+
+    }
+
+    &__label {}
 
 
 
-    // background: rgba(255, 255, 255, 0.2);
-    // border-radius: 16px;
-
-    // backdrop-filter: blur(5px);
-    // -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 
 
 
+    // @media only screen and (max-width: $bp-small) {
+    //     grid-template-columns: 10px;
+    //     grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
+
+    //     row-gap: 2.5px;
+    // }
 
 }
