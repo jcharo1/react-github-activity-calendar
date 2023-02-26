@@ -177,16 +177,21 @@ html {
     // opacity: .5;
 }
 
+div.remove-outline {
+
+    outline: none;
+}
+
 .calender-day {
     cursor: pointer;
     font-size: 4px;
     color: white;
     text-align: center;
     border-radius: 2px;
-    border: 1px solid #5c5c5c;
+    border: 1px solid currentColor;
     position: relative;
     opacity: 1;
-
+    outline: 1px solid $color-calendar-graph-day-L1;
     transition: all .9s;
 
     &:hover {
@@ -200,10 +205,10 @@ html {
 
     // background: rgba(255, 255, 255, 0.2);
     // border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
     // backdrop-filter: blur(5px);
     // -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 
 
 

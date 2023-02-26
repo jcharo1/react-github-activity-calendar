@@ -2137,12 +2137,14 @@ export default function Graph() {
 
         // console.log(displayMonth);
       }
-
+      let bgOutline;
       let bgColorClass = getColor(dayCount);
-
+      if (dayCount === 0) {
+        bgOutline = "remove-outline";
+      }
       return (
-        <div className={`calender-day ${bgColorClass}`}>
-          {formattedDay}
+        <div className={`calender-day ${bgColorClass} ${bgOutline}`}>
+          {/* {formattedDay} */}
           {/* <div class="calender-day__text"></div> */}
         </div>
       );
