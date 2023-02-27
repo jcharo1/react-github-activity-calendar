@@ -25,7 +25,7 @@ export default function App() {
   });
 
   const formatData = data?.user.contributionsCollection.contributionCalendar;
-  //   console.log(formatData);
+  console.log(formatData);
   return (
     <div>
       <Graph data={formatData} />
