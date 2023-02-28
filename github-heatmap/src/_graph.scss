@@ -17,40 +17,6 @@ $bp-small: 37.5em; // 600px;
 
 
 
-// html {
-
-//     box-sizing: border-box;
-//     font-size: 62.5%;
-
-
-//     @media only screen and (max-width: $bp-largest) {
-//         font-size: 50%;
-
-//     }
-
-
-
-//     @media only screen and (max-width: $bp-medium) {
-//         font-size: 45%;
-
-//     }
-
-
-
-
-
-// }
-
-
-// *,
-// *::before,
-// *::after {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: inherit;
-// }
-
-
 
 
 
@@ -82,18 +48,19 @@ $bp-small: 37.5em; // 600px;
 
 
 
-// .wrapper {
 
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     width: 100vw;
-//     background-color: rgb(51, 51, 51);
+.wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
 
 
-//     height: 100vh;
+    height: 100vh;
 
-// }
+}
 
 .container {
     max-width: 1053px;
@@ -117,20 +84,15 @@ $bp-small: 37.5em; // 600px;
         overflow-x: scroll;
 
 
-        // grid-template-columns: [first-col-start]4rem[first-col-end] repeat(auto-fill, 1rem);
+
     }
 
 
-    // overflow: hidden;
-    // overflow-x: scroll;
-
-    // background-color: black;
 
     background: rgba(51, 51, 51, 0.99);
-    // border-radius: 16px;
+
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    // backdrop-filter: blur(5px);
-    // -webkit-backdrop-filter: blur(5px);
+
     border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
@@ -149,7 +111,7 @@ $bp-small: 37.5em; // 600px;
 
     &__name {
         // transform: translateY(-90%);
-        font-size: 1rem;
+        font-size: 10px;
         transform: translateY(-100%);
         // background-color: red;
     }
@@ -191,9 +153,9 @@ $bp-small: 37.5em; // 600px;
         // width: 8rem;
         grid-column: span 1;
         grid-row: 1 / span 1;
-        font-size: 1rem;
+        font-size: 10px;
         display: grid;
-        grid-template-columns: 4.5rem;
+        grid-template-columns: 45px;
         column-gap: 10px;
 
 
@@ -225,7 +187,7 @@ div.remove-outline {
     position: relative;
     opacity: 1;
 
-    // outline: 1px inset $color-calendar-graph-day-L1;
+    outline: 1px inset rgba(33, 33, 33, 0.1);
 
     border: 1px solid rgba(33, 33, 33, 0.1);
     transition: all 10s;
@@ -312,7 +274,7 @@ div.remove-outline {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    font-size: 10px;
     // padding: 0px 5px;
     padding-top: 4px;
     // background-color: red;
@@ -322,9 +284,10 @@ div.remove-outline {
 .example-size {
     width: 10px;
     height: 10px;
+    font-size: 10px;
 }
 
-.example-container {
+.less-more-container {
     display: flex;
     justify-content: space-evenly;
     gap: 5px;
