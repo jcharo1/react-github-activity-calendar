@@ -1,5 +1,5 @@
 import { getColor, months, isFirstOfMonth, DayName } from "./functions.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 
 // const githubApiToken = "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";
@@ -23,28 +23,45 @@ var requestOptions = {
 };
 
 const Graph = () => {
+  const [apicall, setApiCall] = useState({});
+  const [loading, setloading] = useState(false);
+  let formatData;
   let data;
   useEffect(() => {
     const getData = async () => {
       try {
-        const getdata = await fetch(
+        const response = await fetch(
           "https://api.github.com/graphql",
           requestOptions
-        );
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            // console.log(result);
+            data = result.data;
+            setApiCall(data);
+            setloading(true);
+          })
+          .catch((error) => console.log("error", error));
 
-        const response = await getdata;
-        let data = response;
-        console.log(data);
+        // const response = await result;
+        // let data = response;
       } catch (e) {
         console.log(e);
       }
     };
+
     getData();
   }, []);
 
-  const formatData = data?.user.contributionsCollection.contributionCalendar;
+  if (loading) {
+    formatData = apicall?.user.contributionsCollection.contributionCalendar;
+  }
+  //   console.log(apicall);
 
-  const calenderWeeks = formatData?.weeks?.map((week) => {
+  //   const formatData =
+  //     apicall?.user?.contributionsCollection.contributionCalendar;
+
+  const calenderWeeks = formatData?.weeks.map((week) => {
     let displayMonth;
 
     const weekDays = week.contributionDays.map((day) => {
@@ -85,6 +102,7 @@ const Graph = () => {
     );
   });
   return (
+    // <div className="wrapper">
     <div className="container">
       <div className="github-mark"></div>
       <div className="calender-day-label">
@@ -111,6 +129,7 @@ const Graph = () => {
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 export default Graph;
