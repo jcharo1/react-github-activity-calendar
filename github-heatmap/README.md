@@ -1,28 +1,50 @@
-## A small but functional npm package
+# react-github-activity-calendar
 
-### Install
+A brief description of what this project does and who it's for
 
-Install using `npm install github-heatmap`
+## Installation
 
-### Usage
+Install react-github-activity-calendar with npm
 
-In a React app, use the Graph components:  
-`import { Graph } from 'github-heatmap'`
+```bash
+npm install --save react-github-activity-calendar
 
-#### Graph props
+```
 
-| Name     | Description |
-| -------- | ----------- | --------- | -------- | ------- | ---------- |
-| kind     | 'Primary'   | 'Outline' | 'Inline' | 'Ghost' | ' Warning' |
-| data-id  | string      |
-| type     | 'button'    | 'submit'  | 'reset'  |
-| name     | string      |
-| value    | string      |
-| disabled | Boolean     |
-| onClick  | function    |
+## Usage/Examples
 
-#### Badge props
+```javascript
+import { Graph } from "github-heatmap";
 
-| Name  | Description |
-| ----- | ----------- |
-| value | integer     |
+function App() {
+  const githubUserName = "jcharo1";
+
+  const githubApiToken = "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";
+  const bgcolor = "";
+  const color = "";
+  return (
+    <div className="App">
+      <Graph
+        userName={githubUserName}
+        backgroundColor={bgcolor}
+        color={color}
+        githubApiToken={githubApiToken}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Tech Stack
+
+**Client:** React
+
+## Authors
+
+- [@jcharo1](https://www.github.com/jcharo1)
+
+## Screenshots
+
+![App Screenshot](<url(./github.png)>)

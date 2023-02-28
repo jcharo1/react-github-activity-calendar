@@ -9,6 +9,14 @@
   .bg-day--L4 {
     background-color: #39d353; }
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: black;
+  height: 100vh; }
+
 .container {
   max-width: 1053px;
   color: white;
@@ -22,7 +30,7 @@
   background: rgba(51, 51, 51, 0.99);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.3); }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 64.375em) {
     .container {
       grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(53, 10px) [calender-end];
       overflow: hidden;
@@ -37,7 +45,7 @@
   justify-content: space-around;
   align-items: center; }
   .calender-day-label__name {
-    font-size: 1rem;
+    font-size: 10px;
     transform: translateY(-100%); }
 
 .calender-week {
@@ -46,7 +54,7 @@
   grid-template-columns: 15px;
   grid-template-rows: [first-row-start] minmax(15px, min-content) [first-row-end] repeat(6, minmax(15px, min-content));
   row-gap: 2.5px; }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 64.375em) {
     .calender-week {
       grid-template-rows: [first-row-start] minmax(10px, min-content) [first-row-end] repeat(6, minmax(10px, min-content));
       grid-template-columns: 10px; } }
@@ -54,9 +62,9 @@
     margin-left: 12px;
     grid-column: span 1;
     grid-row: 1 / span 1;
-    font-size: 1rem;
+    font-size: 10px;
     display: grid;
-    grid-template-columns: 4.5rem;
+    grid-template-columns: 45px;
     column-gap: 10px; }
 
 .container:hover > .calender-week > .calender-day:not(:hover) {
@@ -72,6 +80,7 @@ div.remove-outline {
   border-radius: 2px;
   position: relative;
   opacity: 1;
+  outline: 1px inset rgba(33, 33, 33, 0.1);
   border: 1px solid rgba(33, 33, 33, 0.1);
   transition: all 10s; }
   .calender-day:hover {
@@ -109,13 +118,21 @@ div.remove-outline {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 10px;
   padding-top: 4px; }
+  .bottom-row__link:link, .bottom-row__link:visited {
+    color: currentColor;
+    text-decoration: none;
+    display: block; }
+    .bottom-row__link:link:hover, .bottom-row__link:visited:hover {
+      text-decoration: underline; }
 
 .example-size {
   width: 10px;
-  height: 10px; }
+  height: 10px;
+  font-size: 10px; }
 
-.example-container {
+.less-more-container {
   display: flex;
   justify-content: space-evenly;
   gap: 5px;
@@ -123,12 +140,12 @@ div.remove-outline {
 
 .github-mark {
   grid-row: 1;
-  justify-self: center;
+  color: inherit;
+  justify-self: start;
   display: inline-block;
   width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-image: url(./github-mark-white.png); }
+  fill: currentColor;
+  height: 12px; }
 
 .container::-webkit-scrollbar {
   height: 4px; }
@@ -142,6 +159,4 @@ div.remove-outline {
   border-radius: 20px;
   width: 10px;
   background-color: rgba(0, 109, 50, 0.8);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 0.4px solid rgba(0, 109, 50, 0.6); }

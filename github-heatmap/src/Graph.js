@@ -1,8 +1,8 @@
 import React from "react";
 import { getColor, months, DayName, requestOptions } from "./functions.js";
 import { useEffect, useState } from "react";
-import "./style.css";
-// import "./main.scss";
+// import "./style.css";
+import "./main.scss";
 
 const Graph = (props) => {
   const [apicall, setApiCall] = useState({});
