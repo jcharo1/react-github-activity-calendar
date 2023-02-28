@@ -1,7 +1,8 @@
+import React from "react";
 import { getColor, months, isFirstOfMonth, DayName } from "./functions.js";
 import { useEffect, useState } from "react";
 import "./style.css";
-
+// import "./main.scss";
 // const githubApiToken = "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";
 var myHeaders = new Headers();
 myHeaders.append(
@@ -102,7 +103,6 @@ const Graph = () => {
     );
   });
   return (
-    // <div className="wrapper">
     <div className="container">
       <div className="github-mark"></div>
       <div className="calender-day-label">
@@ -129,7 +129,6 @@ const Graph = () => {
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 export default Graph;
