@@ -7,6 +7,7 @@ $color-calendar-graph-day-L4: #39d353;
 
 
 $small-tile-size: 15px;
+$small-tile-size-sm: 10px;
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
@@ -16,37 +17,38 @@ $bp-small: 37.5em; // 600px;
 
 
 
-html {
+// html {
 
-    box-sizing: border-box;
-    font-size: 62.5%;
-
-
-    @media only screen and (max-width: $bp-largest) {
-        font-size: 50%;
-
-    }
+//     box-sizing: border-box;
+//     font-size: 62.5%;
 
 
+//     @media only screen and (max-width: $bp-largest) {
+//         font-size: 50%;
 
-    @media only screen and (max-width: $bp-medium) {
-        font-size: 45%;
-    }
+//     }
 
 
 
+//     @media only screen and (max-width: $bp-medium) {
+//         font-size: 45%;
+
+//     }
 
 
-}
 
 
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
+
+// }
+
+
+// *,
+// *::before,
+// *::after {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: inherit;
+// }
 
 
 
@@ -80,21 +82,21 @@ html {
 
 
 
-.wrapper {
+// .wrapper {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    background-color: rgb(51, 51, 51);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 100vw;
+//     background-color: rgb(51, 51, 51);
 
 
-    height: 100vh;
+//     height: 100vh;
 
-}
+// }
 
 .container {
-
+    max-width: 1053px;
     color: white;
     display: grid;
     grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr[last-row-end];
@@ -110,6 +112,7 @@ html {
     @media only screen and (max-width: $bp-small) {
         // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
         // column-gap: 4px;
+        grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size-sm) [calender-end];
         overflow: hidden;
         overflow-x: scroll;
 
@@ -123,7 +126,7 @@ html {
 
     // background-color: black;
 
-    background: rgba(0, 0, 0, 0.674);
+    background: rgba(51, 51, 51, 0.99);
     // border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     // backdrop-filter: blur(5px);
@@ -157,12 +160,18 @@ html {
 
     display: grid;
     grid-template-columns: $small-tile-size;
+
     grid-template-rows: [first-row-start]minmax($small-tile-size, min-content)[first-row-end] repeat(6, minmax($small-tile-size, min-content));
     // grid-template-columns: 10px;
     // grid-template-rows: [first-row-start]minmax(10px, min-content)[first-row-end] repeat(6, minmax(10px, min-content));
 
     row-gap: 2.5px;
 
+    @media only screen and (max-width: $bp-small) {
+        grid-template-rows: [first-row-start]minmax($small-tile-size-sm, min-content)[first-row-end] repeat(6, minmax($small-tile-size-sm, min-content));
+
+        grid-template-columns: $small-tile-size-sm;
+    }
 
 
 
@@ -216,9 +225,9 @@ div.remove-outline {
     position: relative;
     opacity: 1;
 
-    // outline: -.5px solid $color-calendar-graph-day-L1;
+    // outline: 1px inset $color-calendar-graph-day-L1;
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(33, 33, 33, 0.1);
     transition: all 10s;
     // z-index: 100;
 
