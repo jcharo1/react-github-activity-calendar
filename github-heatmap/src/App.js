@@ -7,9 +7,16 @@ export default function App() {
   const githubUserName = "jcharo1";
 
   const githubApiToken = "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";
+  const bgcolor = "blue";
+  const color = "red";
   return (
     <div>
-      <Graph userName={githubUserName} githubApiToken={githubApiToken} />
+      <Graph
+        userName={githubUserName}
+        githubApiToken={githubApiToken}
+        // backgroundColor={bgcolor}
+        // color={color}
+      />
     </div>
   );
 }

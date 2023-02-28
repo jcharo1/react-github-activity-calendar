@@ -10,7 +10,7 @@ $small-tile-size: 15px;
 $small-tile-size-sm: 10px;
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
-$bp-large: 62.5em; // 1000px
+$bp-large: 64.375em; // 1000px
 $bp-medium: 50em; // 800px;
 $bp-small: 37.5em; // 600px;
 
@@ -76,7 +76,7 @@ $bp-small: 37.5em; // 600px;
     // width: 50%;
 
 
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: $bp-large) {
         // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
         // column-gap: 4px;
         grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size-sm) [calender-end];
@@ -129,7 +129,7 @@ $bp-small: 37.5em; // 600px;
 
     row-gap: 2.5px;
 
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: $bp-large) {
         grid-template-rows: [first-row-start]minmax($small-tile-size-sm, min-content)[first-row-end] repeat(6, minmax($small-tile-size-sm, min-content));
 
         grid-template-columns: $small-tile-size-sm;
@@ -277,6 +277,24 @@ div.remove-outline {
     font-size: 10px;
     // padding: 0px 5px;
     padding-top: 4px;
+
+
+
+    &__link:link,
+    &__link:visited {
+        color: currentColor;
+        text-decoration: none;
+        // text-transform: uppercase;
+        display: block;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+
+
     // background-color: red;
 }
 
@@ -288,21 +306,29 @@ div.remove-outline {
 }
 
 .less-more-container {
+    // text-transform: uppercase;
     display: flex;
     justify-content: space-evenly;
     gap: 5px;
     align-items: center;
 }
 
+
+
+
 .github-mark {
     grid-row: 1;
     // grid-column: -1;
-    justify-self: center;
+
+    color: inherit;
+    // align-content: center;
+    justify-self: start;
     display: inline-block;
     width: 12px;
+    fill: currentColor;
     height: 12px;
-    background-size: contain;
-    background-image: url(./github-mark-white.png);
+    // background-size: contain;
+    // background-image: url(./github-mark.svg);
 
 }
 
@@ -335,7 +361,7 @@ div.remove-outline {
     background-color: rgba($color-calendar-graph-day-L2, .8);
     // border-radius: 16px;
     // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    // backdrop-filter: blur(5px);
+    // -webkit-backdrop-filter: blur(5px);
     border: .4px solid rgba($color-calendar-graph-day-L2, .6);
 }
