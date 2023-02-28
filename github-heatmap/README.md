@@ -47,4 +47,4 @@ export default App;
 
 ## Screenshots
 
-![App Screenshot](<url(./github.png)>)
+![App Screenshot](https://github.com/jcharo1/github-contribution-heatmap/github-heatmap/main/github.png?raw=true)
