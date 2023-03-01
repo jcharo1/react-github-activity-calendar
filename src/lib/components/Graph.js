@@ -13,7 +13,7 @@ const Graph = (props) => {
       try {
         fetch(
           "https://api.github.com/graphql",
-          requestOptions(props.userName, props.githubApiToken)
+          requestOptions(props.userName, props.githubApiKey)
         )
           .then((response) => response.json())
           .then((result) => {
@@ -29,7 +29,7 @@ const Graph = (props) => {
     };
 
     getData();
-  }, [props.githubApiToken, props.userName]);
+  }, [props.githubApiKey, props.userName]);
 
   if (loading) {
     formatData = apicall?.user.contributionsCollection.contributionCalendar;
