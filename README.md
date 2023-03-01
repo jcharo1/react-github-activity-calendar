@@ -2,6 +2,10 @@
 
 React component for displaying a user's Github activity in a calendar format.
 
+## View on my Portfolio 😉
+
+https://justin.charo.gg/
+
 ## Installation
 
 To install the package, run:

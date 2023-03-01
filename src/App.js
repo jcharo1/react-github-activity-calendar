@@ -15,7 +15,7 @@ export default function App() {
     <div>
       <Graph
         userName={githubUserName}
-        githubApiToken={githubApiKey}
+        githubApiKey={githubApiKey}
         backgroundColor={bgcolor}
         color={color}
       />
