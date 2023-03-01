@@ -12,15 +12,9 @@ const Graph = (props) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        let githubApiToken;
-        if (!props.githubApiToken) {
-          githubApiToken = "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";
-        } else {
-          githubApiToken = props.githubApiToken;
-        }
         fetch(
           "https://api.github.com/graphql",
-          requestOptions(props.userName, githubApiToken)
+          requestOptions(props.userName, props.githubApiToken)
         )
           .then((response) => response.json())
           .then((result) => {

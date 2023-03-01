@@ -44,7 +44,7 @@ export default App;
 - `userName` (required): The Github username for which to display activity.
 - `backgroundColor` (optional): The background color of the calendar (hex color code, e.g. `#ffffff`).
 - `color` (optional): The color of the text and github icon(hex color code, e.g. `#000000`).
-- `apiKey` (optional): Your Github API key. It is recommended that you generate your own API key from Github and pass it as a prop to the component, but it is not required. If no API key is provided, the component will make unauthenticated requests to the Github API, which may be subject to rate limiting.
+- `apiKey` (required): Your Github API key. It is requried that you generate your own API key from Github and pass it as a prop to the component If no API key is provided, the component will not be able to make requests to the Github API, to display your activity. I have provided steps to generate your api token below.
 
 ## Generating a Github API Key
 
@@ -66,4 +66,4 @@ Copy the token and keep it somewhere safe.
 
 ## Screenshots
 
-![App Screenshot](https://github.com/jcharo1/github-contribution-heatmap/blob/main/github-heatmap/github.png)
+![App Screenshot](https://github.com/jcharo1/react-github-activity-calendar/blob/main/github.png)
