@@ -8,11 +8,6 @@ $color-calendar-graph-day-L4: #39d353;
 
 $small-tile-size: 15px;
 $small-tile-size-sm: 10px;
-// RESPONSIVE BREAKPOINTS
-$bp-largest: 75em; // 1200px
-$bp-large: 64.375em; // 1000px
-$bp-medium: 50em; // 800px;
-$bp-small: 37.5em; // 600px;
 
 
 
@@ -21,7 +16,9 @@ $bp-small: 37.5em; // 600px;
 
 
 
-.bg-day {
+
+
+.react-github-activity-calendar-bg-day {
     background-color: $color-calendar-graph-day-bg;
 
     &--L1 {
@@ -50,7 +47,7 @@ $bp-small: 37.5em; // 600px;
 
 
 
-.container {
+.react-github-activity-calendar-container {
     max-width: 1053px;
     color: white;
     display: grid;
@@ -64,7 +61,7 @@ $bp-small: 37.5em; // 600px;
     // width: 50%;
 
 
-    @media only screen and (max-width: $bp-large) {
+    @media only screen and (max-width: 75em) {
         // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
         // column-gap: 4px;
         grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size-sm) [calender-end];
@@ -87,7 +84,7 @@ $bp-small: 37.5em; // 600px;
 
 
 
-.calender-day-label {
+.react-github-activity-calendar-calender-day-label {
     grid-column: first-col-start/first-col-end;
     grid-row: 2/-1;
     display: flex;
@@ -105,7 +102,7 @@ $bp-small: 37.5em; // 600px;
     }
 }
 
-.calender-week {
+.react-github-activity-calendar-calender-week {
     grid-row: 2/-1;
 
     display: grid;
@@ -117,7 +114,7 @@ $bp-small: 37.5em; // 600px;
 
     row-gap: 2.5px;
 
-    @media only screen and (max-width: $bp-large) {
+    @media only screen and (max-width: 75em) {
         grid-template-rows: [first-row-start]minmax($small-tile-size-sm, min-content)[first-row-end] repeat(6, minmax($small-tile-size-sm, min-content));
 
         grid-template-columns: $small-tile-size-sm;
@@ -155,17 +152,17 @@ $bp-small: 37.5em; // 600px;
 }
 
 
-.container:hover>.calender-week>.calender-day:not(:hover) {
+.react-github-activity-calendar-container:hover>.react-github-activity-calendar-calender-week>.react-github-activity-calendar-calender-day:not(:hover) {
     transition: opacity .9s;
     // opacity: .5;
 }
 
-div.remove-outline {
+div.react-github-activity-calendar-remove-outline {
 
     outline: none;
 }
 
-.calender-day {
+.react-github-activity-calendar-calender-day {
     cursor: pointer;
     font-size: 4px;
 
@@ -255,7 +252,7 @@ div.remove-outline {
 }
 
 
-.bottom-row {
+.react-github-activity-calendar-bottom-row {
 
     grid-row: -1;
     grid-column: 2 /span end;
@@ -287,13 +284,13 @@ div.remove-outline {
 }
 
 
-.example-size {
+.react-github-activity-calendar-example-size {
     width: 10px;
     height: 10px;
     font-size: 10px;
 }
 
-.less-more-container {
+.react-github-activity-calendar-less-more-container {
     // text-transform: uppercase;
     display: flex;
     justify-content: space-evenly;
@@ -304,7 +301,7 @@ div.remove-outline {
 
 
 
-.github-mark {
+.react-github-activity-calendar-github-mark {
     grid-row: 1;
     // grid-column: -1;
 
@@ -320,7 +317,7 @@ div.remove-outline {
 
 }
 
-.container::-webkit-scrollbar {
+.react-github-activity-calendar-container::-webkit-scrollbar {
     height: 4px;
     // width: 4px;
     // background-color: red;
@@ -330,14 +327,14 @@ div.remove-outline {
 
 }
 
-.container::-webkit-scrollbar-track {
+.react-github-activity-calendar-container::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     overflow: hidden;
 
 }
 
-.container::-webkit-scrollbar-thumb {
+.react-github-activity-calendar-container::-webkit-scrollbar-thumb {
     border-radius: 20px;
     width: 10px;
     // width: 1px;

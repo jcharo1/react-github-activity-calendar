@@ -1,7 +1,7 @@
 {
 
   "name": "react-github-activity-calendar",
-  "version": "1.0.4",
+  "version": "2.0.0",
 
   "keywords": [
     "react",
@@ -30,12 +30,12 @@
   },
   "dependencies": {
 
-    "@babel/polyfill": "^7.12.1",
 
 
 
 
-    "web-vitals": "^2.1.4"
+
+   
 
   },
   "peerDependencies": {
@@ -47,8 +47,8 @@
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile:sass": "node-sass src/main.scss src/css/style.comp.css",
-    "compress:css": "node-sass src/css/style.comp.css src/css/style.css --output-style compressed",
+    "compile:sass": "node-sass src/lib/components/main.scss src/lib/components/style.comp.css",
+    "compress:css": "node-sass src/lib/components/style.comp.css src/lib/components/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass compress:css"
   },
   "eslintConfig": {

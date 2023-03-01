@@ -51,14 +51,14 @@ export default App;
 In case you forget where to see your tokens: https://github.com/settings/tokens
 To generate a Github API key, follow these steps:
 
-1.Sign in to your Github account.
-2.Go to your Settings page.
-3.Click on Developer settings in the left-hand menu.
-4.Click on Personal access tokens in the left-hand menu.
-5.Click on Generate new token.
-6.Give your token a name and select the scope to read:user.
-7.Click on Generate token.
-8.Copy the token and keep it somewhere safe.
+- 1.Sign in to your Github account.
+- 2.Go to your Settings page.
+- 3.Click on Developer settings in the left-hand menu.
+- 4.Click on Personal access tokens in the left-hand menu.
+- 5.Click on Generate new token.
+- 6.Give your token a name and select the scope to read:user.
+- 7.Click on Generate token.
+- 8.Copy the token and keep it somewhere safe.
 
 ## Authors
 

@@ -1,14 +1,14 @@
 export function getColor(count) {
   if (count <= 0) {
-    return "bg-day";
+    return "react-github-activity-calendar-bg-day";
   } else if (count > 0 && count < 6) {
-    return "bg-day--L1";
+    return "react-github-activity-calendar-bg-day--L1";
   } else if (count < 9) {
-    return "bg-day--L2";
+    return "react-github-activity-calendar-bg-day--L2";
   } else if (count < 14) {
-    return "bg-day--L3";
+    return "react-github-activity-calendar-bg-day--L3";
   } else {
-    return "bg-day--L4";
+    return "react-github-activity-calendar-bg-day--L4";
   }
 }
 
