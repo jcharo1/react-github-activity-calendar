@@ -14,7 +14,7 @@ npm install --save react-github-activity-calendar
 ## Usage/Examples
 
 ```javascript
-import { Graph } from "github-heatmap";
+import { Graph } from "react-github-activity-calendar";
 
 function App() {
   const githubUserName = "jcharo1";
