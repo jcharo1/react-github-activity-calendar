@@ -4,15 +4,18 @@ import Graph from "./lib/components/Graph";
 
 export default function App() {
   //   console.log(formatData);
-  const githubUserName = "";
 
+  const githubApiKey = ""; // <your-github-api-key>
+  const githubUserName = ""; // <github-username>
   const bgcolor = "";
+  const textColor = "";
+
   const color = "";
   return (
     <div>
       <Graph
         userName={githubUserName}
-        // githubApiToken={githubApiToken}
+        githubApiToken={githubApiKey}
         backgroundColor={bgcolor}
         color={color}
       />

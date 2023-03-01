@@ -9,14 +9,6 @@
   .bg-day--L4 {
     background-color: #39d353; }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  background-color: black;
-  height: 100vh; }
-
 .container {
   max-width: 1053px;
   color: white;

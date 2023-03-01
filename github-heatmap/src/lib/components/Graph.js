@@ -8,11 +8,12 @@ const Graph = (props) => {
   const [apicall, setApiCall] = useState({});
   const [loading, setloading] = useState(false);
   let formatData;
-  let githubApiToken;
+
   useEffect(() => {
     const getData = async () => {
       try {
-        if (!props.githubApiToke) {
+        let githubApiToken;
+        if (!props.githubApiToken) {
           githubApiToken = "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";
         } else {
           githubApiToken = props.githubApiToken;
@@ -23,7 +24,7 @@ const Graph = (props) => {
         )
           .then((response) => response.json())
           .then((result) => {
-            console.log(result);
+            // console.log(result);
 
             setApiCall(result.data);
             setloading(true);
