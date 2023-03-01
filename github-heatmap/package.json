@@ -26,14 +26,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcharo1/github-contribution-heatmap "
+    "url": "git+https://github.com/jcharo1/react-github-activity-calendar"
   },
   "dependencies": {
 
     "@babel/polyfill": "^7.12.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+
 
 
 

@@ -1,10 +1,10 @@
-# react-github-activity-calendar
+# React Github Activity Calendar
 
-A brief description of what this project does and who it's for
+React component for displaying a user's Github activity in a calendar format.
 
 ## Installation
 
-Install react-github-activity-calendar with npm
+To install the package, run:
 
 ```bash
 npm install --save react-github-activity-calendar
@@ -13,19 +13,24 @@ npm install --save react-github-activity-calendar
 
 ## Usage/Examples
 
+To use the Graph component in your React project, import it and include it in your component's render method:
+
 ```javascript
-import { Graph } from "github-heatmap";
+import { Graph } from "react-github-activity-calendar";
 
 function App() {
-  const githubUserName = "jcharo1";
+  const githubApiKey = ""; // <your-github-api-key>
+  const githubUserName = ""; // <github-username>
+  const bgcolor = "";
+  const textColor = "";
 
   return (
     <div className="App">
       <Graph
         userName={githubUserName}
         backgroundColor={bgcolor}
-        color={color}
-        githubApiToken={githubApiToken}
+        githubApiKey={githubApiKey}
+        color={textColor}
       />
     </div>
   );
@@ -34,9 +39,26 @@ function App() {
 export default App;
 ```
 
-## Tech Stack
+## Props
 
-**Client:** React
+- `userName` (required): The Github username for which to display activity.
+- `backgroundColor` (optional): The background color of the calendar (hex color code, e.g. `#ffffff`).
+- `color` (optional): The color of the text and github icon(hex color code, e.g. `#000000`).
+- `apiKey` (optional): Your Github API key. It is recommended that you generate your own API key from Github and pass it as a prop to the component, but it is not required. If no API key is provided, the component will make unauthenticated requests to the Github API, which may be subject to rate limiting.
+
+## Generating a Github API Key
+
+In case you forget where to see your tokens: https://github.com/settings/tokens
+To generate a Github API key, follow these steps:
+
+Sign in to your Github account.
+Go to your Settings page.
+Click on Developer settings in the left-hand menu.
+Click on Personal access tokens in the left-hand menu.
+Click on Generate new token.
+Give your token a name and select the scope to read:user.
+Click on Generate token.
+Copy the token and keep it somewhere safe.
 
 ## Authors
 
