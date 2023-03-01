@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactDOM from "react-dom/client";
 // import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./App";
-import "./css/style.css";
+import "./main.scss";
 
 // const githubApiToken = "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";
 
