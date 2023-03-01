@@ -19,9 +19,6 @@ import { Graph } from "github-heatmap";
 function App() {
   const githubUserName = "jcharo1";
 
-  const githubApiToken = "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";
-  const bgcolor = "";
-  const color = "";
   return (
     <div className="App">
       <Graph
