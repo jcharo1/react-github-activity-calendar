@@ -42,9 +42,9 @@ export default App;
 ## Props
 
 - `userName` (required): The Github username for which to display activity.
+- `apiKey` (required): Your Github API key. It is requried that you generate your own API key from Github and pass it as a prop to the component If no API key is provided, the component will not be able to make requests to the Github API, to display your activity. I have provided steps to generate your api token below.
 - `backgroundColor` (optional): The background color of the calendar (hex color code, e.g. `#ffffff`).
 - `color` (optional): The color of the text and github icon(hex color code, e.g. `#000000`).
-- `apiKey` (required): Your Github API key. It is requried that you generate your own API key from Github and pass it as a prop to the component If no API key is provided, the component will not be able to make requests to the Github API, to display your activity. I have provided steps to generate your api token below.
 
 ## Generating a Github API Key
 
