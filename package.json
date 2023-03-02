@@ -1,7 +1,7 @@
 {
 
   "name": "react-github-activity-calendar",
-  "version": "2.0.4",
+  "version": "2.0.5",
 
   "keywords": [
     "react",
@@ -47,7 +47,7 @@
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile:sass": "node-sass src/lib/components/main.scss src/lib/components/style.comp.css",
+    "compile:sass": "node-sass src/main.scss src/lib/components/style.comp.css",
     "compress:css": "node-sass src/lib/components/style.comp.css src/lib/components/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass compress:css"
   },

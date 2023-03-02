@@ -48,7 +48,9 @@ $small-tile-size-sm: 10px;
 
 
 .react-github-activity-calendar-container {
+
     max-width: 1053px;
+    width: 100%;
     color: white;
     display: grid;
     grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr[last-row-end];
@@ -59,18 +61,19 @@ $small-tile-size-sm: 10px;
 
     padding: 5px 10px 5px 10px;
     // width: 50%;
+    overflow: hidden;
+    overflow-x: scroll;
+
+    // @media only screen and (max-width: 75em) {
+    //     // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
+    //     // column-gap: 4px;
+    //     grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size-sm) [calender-end];
+    //     overflow: hidden;
+    //     overflow-x: scroll;
 
 
-    @media only screen and (max-width: 75em) {
-        // grid-template-columns: [first-col-start]4rem[first-col-end calender-start] repeat(53, 1rem) [calender-end];
-        // column-gap: 4px;
-        grid-template-columns: [first-col-start]20px[first-col-end calender-start] repeat(53, $small-tile-size-sm) [calender-end];
-        overflow: hidden;
-        overflow-x: scroll;
 
-
-
-    }
+    // }
 
 
 
@@ -95,10 +98,10 @@ $small-tile-size-sm: 10px;
     align-items: center;
 
     &__name {
-        // transform: translateY(-90%);
+
         font-size: 10px;
         transform: translateY(-100%);
-        // background-color: red;
+
     }
 }
 
@@ -114,11 +117,11 @@ $small-tile-size-sm: 10px;
 
     row-gap: 2.5px;
 
-    @media only screen and (max-width: 75em) {
-        grid-template-rows: [first-row-start]minmax($small-tile-size-sm, min-content)[first-row-end] repeat(6, minmax($small-tile-size-sm, min-content));
+    // @media only screen and (max-width: 75em) {
+    //     grid-template-rows: [first-row-start]minmax($small-tile-size-sm, min-content)[first-row-end] repeat(6, minmax($small-tile-size-sm, min-content));
 
-        grid-template-columns: $small-tile-size-sm;
-    }
+    //     grid-template-columns: $small-tile-size-sm;
+    // }
 
 
 
@@ -154,7 +157,7 @@ $small-tile-size-sm: 10px;
 
 .react-github-activity-calendar-container:hover>.react-github-activity-calendar-calender-week>.react-github-activity-calendar-calender-day:not(:hover) {
     transition: opacity .9s;
-    // opacity: .5;
+
 }
 
 div.react-github-activity-calendar-remove-outline {
@@ -256,12 +259,14 @@ div.react-github-activity-calendar-remove-outline {
 
     grid-row: -1;
     grid-column: 2 /span end;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 10px;
     // padding: 0px 5px;
     padding-top: 4px;
+
 
 
 
@@ -304,7 +309,7 @@ div.react-github-activity-calendar-remove-outline {
 .react-github-activity-calendar-github-mark {
     grid-row: 1;
     // grid-column: -1;
-
+    transform: translateY(-50%);
     color: inherit;
     // align-content: center;
     justify-self: start;
@@ -312,15 +317,14 @@ div.react-github-activity-calendar-remove-outline {
     width: 12px;
     fill: currentColor;
     height: 12px;
-    // background-size: contain;
-    // background-image: url(./github-mark.svg);
+
 
 }
 
 .react-github-activity-calendar-container::-webkit-scrollbar {
     height: 4px;
-    // width: 4px;
-    // background-color: red;
+
+
 
 
 
@@ -328,18 +332,15 @@ div.react-github-activity-calendar-remove-outline {
 }
 
 .react-github-activity-calendar-container::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    // -webkit-box-shadow: inset 0 0 6px rgba(255, 0, 0, 0.3);
     border-radius: 5px;
     overflow: hidden;
-
 }
 
 .react-github-activity-calendar-container::-webkit-scrollbar-thumb {
     border-radius: 20px;
     width: 10px;
-    // width: 1px;
-    // background-color: $color-calendar-graph-day-L2;
-    // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+
 
 
 
