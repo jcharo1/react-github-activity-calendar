@@ -8,13 +8,12 @@ export default function App() {
   const bgcolor = "";
   const textColor = "";
 
-  const color = "";
   return (
     <Graph
       userName={githubUserName}
       githubApiKey={githubApiKey}
       backgroundColor={bgcolor}
-      color={color}
+      color={textColor}
     />
   );
 }
