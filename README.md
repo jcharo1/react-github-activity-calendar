@@ -2,9 +2,14 @@
 
 React component for displaying a user's Github activity in a calendar format.
 
+
+https://www.npmjs.com/package/react-github-activity-calendar
+
 ## View on my Portfolio 😉
 
 https://justin.charo.gg/
+
+
 
 ## Installation
 
