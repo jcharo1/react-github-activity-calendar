@@ -1,15 +1,12 @@
 {
-
   "name": "react-github-activity-calendar",
   "version": "2.0.5",
-
   "keywords": [
     "react",
     "components",
     "ui",
     "responsive",
     "calendar",
-
     "react-activity-calendar",
     "react-github-calendar",
     "contributions-tracker",
@@ -29,14 +26,7 @@
     "url": "git+https://github.com/jcharo1/react-github-activity-calendar"
   },
   "dependencies": {
-
-
-
-
-
-
-   
-
+    "corejs": "3.6.5"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -70,7 +60,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
-
     "webpack-cli": "^3.0.4"
   },
   "browserslist": {
