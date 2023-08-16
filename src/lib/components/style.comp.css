@@ -130,7 +130,7 @@ div.react-github-activity-calendar-remove-outline {
 
 .react-github-activity-calendar-github-mark {
   grid-row: 1;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(1);
   color: inherit;
   justify-self: start;
   display: inline-block;
@@ -139,7 +139,7 @@ div.react-github-activity-calendar-remove-outline {
   height: 12px; }
   .react-github-activity-calendar-github-mark:hover {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform: scale(1.2); }
+    transform: translateY(-50%) scale(1.2); }
 
 .react-github-activity-calendar-container::-webkit-scrollbar {
   height: 4px; }
