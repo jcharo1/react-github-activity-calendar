@@ -40,26 +40,20 @@ const Graph = (props) => {
     count += 1;
     if (count <= 5) {
       styleOptionsDay = {
-        backgroundColor: `${
-          props.backgroundColor ? props.backgroundColor : ``
-        }`,
-        color: `${props.color ? props.color : ``}`,
+        backgroundColor: `${props.color ? props.color : ``}`,
+        color: `${props.backgroundColor ? props.backgroundColor : ``}`,
         clipPath: `polygon(0% 0%, 100% 0%, 100% 75%, 5% 77%, 0 100%, 0 78%)`,
         transform: "translate(0%, 0%) scaleY(1)",
       };
     } else if (count <= 48) {
       styleOptionsDay = {
-        backgroundColor: `${
-          props.backgroundColor ? props.backgroundColor : ``
-        }`,
-        color: `${props.color ? props.color : ``}`,
+        backgroundColor: `${props.color ? props.color : ``}`,
+        color: `${props.backgroundColor ? props.backgroundColor : ``}`,
       };
     } else {
       styleOptionsDay = {
-        backgroundColor: `${
-          props.backgroundColor ? props.backgroundColor : ``
-        }`,
-        color: `${props.color ? props.color : ``}`,
+        backgroundColor: `${props.color ? props.color : ``}`,
+        color: `${props.backgroundColor ? props.backgroundColor : ``}`,
         clipPath: `polygon(0% 0%, 100% 0%, 100% 75%, 100% 74%, 100% 100%, 94% 77%, 0 76%)`,
         transform: "translate(-100%, 0%) scaleY(1)",
       };
