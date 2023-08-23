@@ -7,7 +7,6 @@ const Graph = (props) => {
   const [apicall, setApiCall] = useState({});
   const [loading, setloading] = useState(false);
   let formatData;
-
   useEffect(() => {
     const getData = async () => {
       try {
@@ -34,9 +33,37 @@ const Graph = (props) => {
   if (loading) {
     formatData = apicall?.user.contributionsCollection.contributionCalendar;
   }
-
+  let count = 0;
+  let styleOptionsDay;
   const calenderWeeks = formatData?.weeks.map((week) => {
     let displayMonth;
+    count += 1;
+    if (count <= 5) {
+      styleOptionsDay = {
+        backgroundColor: `${
+          props.backgroundColor ? props.backgroundColor : ``
+        }`,
+        color: `${props.color ? props.color : ``}`,
+        clipPath: `polygon(0% 0%, 100% 0%, 100% 75%, 5% 77%, 0 100%, 0 78%)`,
+        transform: "translate(0%, 0%) scaleY(1)",
+      };
+    } else if (count <= 48) {
+      styleOptionsDay = {
+        backgroundColor: `${
+          props.backgroundColor ? props.backgroundColor : ``
+        }`,
+        color: `${props.color ? props.color : ``}`,
+      };
+    } else {
+      styleOptionsDay = {
+        backgroundColor: `${
+          props.backgroundColor ? props.backgroundColor : ``
+        }`,
+        color: `${props.color ? props.color : ``}`,
+        clipPath: `polygon(0% 0%, 100% 0%, 100% 75%, 100% 74%, 100% 100%, 94% 77%, 0 76%)`,
+        transform: "translate(-100%, 0%) scaleY(1)",
+      };
+    }
 
     const weekDays = week.contributionDays.map((day) => {
       const dayCount = day.contributionCount;
@@ -57,9 +84,12 @@ const Graph = (props) => {
       }
       return (
         <div
-          className={`react-github-activity-calendar-calender-day ${bgColorClass} ${bgOutline}`}
+          className={`react-github-activity-calendar-calender-day ${bgColorClass} ${bgOutline}   `}
         >
-          <div className="react-github-activity-calendar-calender-day__text-container">
+          <div
+            className={`react-github-activity-calendar-calender-day__text-container `}
+            style={styleOptionsDay}
+          >
             <div className="react-github-activity-calendar-calender-day__text">
               {dayCount}&#160;contributions on {DayName[formattedDayName]}
               ,&#160;
@@ -81,6 +111,7 @@ const Graph = (props) => {
       </>
     );
   });
+
   return (
     <div
       className="react-github-activity-calendar-container"

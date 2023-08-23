@@ -31,7 +31,7 @@ $small-tile-size-sm: 10px;
 .react-github-activity-calendar-container {
   max-width: 1053px;
   width: 100%;
-  color: white;
+  color: rgb(255, 255, 255);
   display: grid;
   grid-template-rows: [first-row-start]min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr[last-row-end];
   grid-template-columns:
@@ -196,6 +196,28 @@ div.react-github-activity-calendar-remove-outline {
     // align-items: center;
     // justify-content: center;
     transform-origin: top;
+    // &:nth-child(-n + 14) {
+    //   clip-path: polygon(
+    //     0% 0%,
+    //     100% 0%,
+    //     100% 75%,
+    //     10% 75%,
+    //     0 100%,
+    //     0 75%,
+    //     0% 75%
+    //   );
+    // }
+    // &:nth-child(n + 300):nth-child(-n + 365) {
+    //   clip-path: polygon(
+    //     0% 0%,
+    //     100% 0%,
+    //     100% 75%,
+    //     100% 74%,
+    //     100% 100%,
+    //     80% 77%,
+    //     0 76%
+    //   );
+    // }
   }
 
   &__text {
