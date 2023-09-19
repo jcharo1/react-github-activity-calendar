@@ -3,11 +3,11 @@
 import Graph from "./lib/components/Graph";
 
 export default function App() {
-  const githubApiKey = ""; // <your-github-api-key>
-  const githubUserName = ""; // <github-username>
+  const githubApiKey = "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"; // <your-github-api-key>
+
+  const githubUserName = "jcharo1"; // <github-username>
   const bgcolor = "";
   const textColor = "";
-
   return (
     <Graph
       userName={githubUserName}

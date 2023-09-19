@@ -1,124 +1,61 @@
 import React from "react";
 import { getColor, months, DayName, requestOptions } from "./functions.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "./style.css";
+import CalendarWeeks from "./CalendarWeeks.js";
+import PropTypes from "prop-types";
 
-const Graph = (props) => {
-  const [apicall, setApiCall] = useState({});
-  const [loading, setloading] = useState(false);
-  let formatData;
+const Graph = ({ userName, githubApiKey, color, backgroundColor }, props) => {
+  const [apiData, setApiData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    const getData = async () => {
+    const fetchData = async () => {
       try {
-        fetch(
+        setLoading(true);
+        const response = await fetch(
           "https://api.github.com/graphql",
-          requestOptions(props.userName, props.githubApiKey)
-        )
-          .then((response) => response.json())
-          .then((result) => {
-            // console.log(result);
+          requestOptions(userName, githubApiKey)
+        );
 
-            setApiCall(result.data);
-            setloading(true);
-          })
-          .catch((error) => console.log("error", error));
-      } catch (e) {
-        console.log(e);
+        const result = await response.json();
+
+        if (result.errors) {
+          throw new Error(result.errors[0].message);
+        }
+
+        setApiData(result.data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
-    getData();
-  }, [props.githubApiKey, props.userName]);
+    fetchData();
+  }, [githubApiKey, userName]);
+  const [formatData, setFormatData] = useState({});
 
-  if (loading) {
-    formatData = apicall?.user.contributionsCollection.contributionCalendar;
-  }
-  let count = 0;
-  let styleOptionsDay;
-  const calenderWeeks = formatData?.weeks.map((week) => {
-    let displayMonth;
-    count += 1;
-    if (count <= 5) {
-      styleOptionsDay = {
-        backgroundColor: `${props.color ? props.color : ``}`,
-        color: `${props.backgroundColor ? props.backgroundColor : ``}`,
-        clipPath: `polygon(0% 0%, 100% 0%, 100% 75%, 5% 77%, 0 100%, 0 78%)`,
-        transform: "translate(0%, 0%) scaleY(1)",
-      };
-    } else if (count <= 48) {
-      styleOptionsDay = {
-        backgroundColor: `${props.color ? props.color : ``}`,
-        color: `${props.backgroundColor ? props.backgroundColor : ``}`,
-      };
-    } else {
-      styleOptionsDay = {
-        backgroundColor: `${props.color ? props.color : ``}`,
-        color: `${props.backgroundColor ? props.backgroundColor : ``}`,
-        clipPath: `polygon(0% 0%, 100% 0%, 100% 75%, 100% 74%, 100% 100%, 94% 77%, 0 76%)`,
-        transform: "translate(-100%, 0%) scaleY(1)",
-      };
+  useEffect(() => {
+    if (apiData?.user) {
+      setFormatData(apiData.user.contributionsCollection.contributionCalendar);
     }
-
-    const weekDays = week.contributionDays.map((day) => {
-      const dayCount = day.contributionCount;
-      const dayDate = new Date(day.date);
-
-      const formattedYear = dayDate.getFullYear();
-      const formattedDay = dayDate.getDate();
-      const formattedDayName = dayDate.getDay();
-      let month = dayDate.getMonth();
-
-      if (formattedDay === 1) {
-        displayMonth = months[month];
-      }
-      let bgOutline;
-      let bgColorClass = getColor(dayCount);
-      if (dayCount === 0) {
-        bgOutline = "react-github-activity-calendar-remove-outline";
-      }
-      return (
-        <div
-          className={`react-github-activity-calendar-calender-day ${bgColorClass} ${bgOutline}   `}
-        >
-          <div
-            className={`react-github-activity-calendar-calender-day__text-container `}
-            style={styleOptionsDay}
-          >
-            <div className="react-github-activity-calendar-calender-day__text">
-              {dayCount}&#160;contributions on {DayName[formattedDayName]}
-              ,&#160;
-              {months[month]} {formattedDay}, {formattedYear}
-            </div>
-          </div>
-        </div>
-      );
-    });
-    return (
-      <>
-        <div className="react-github-activity-calendar-calender-week__month">
-          {displayMonth}
-        </div>
-
-        <div className="react-github-activity-calendar-calender-week">
-          {weekDays}
-        </div>
-      </>
-    );
-  });
+  }, [apiData]);
 
   return (
     <div
       className="react-github-activity-calendar-container"
       style={{
-        backgroundColor: `${
-          props.backgroundColor ? props.backgroundColor : ``
-        }`,
-        color: `${props.color ? props.color : ``}`,
+        backgroundColor: `${backgroundColor ? backgroundColor : ``}`,
+        color: `${color ? color : ``}`,
       }}
     >
       <a
         className="react-github-activity-calendar-github-mark"
-        href={`https://github.com/${props.userName}`}
+        href={`https://github.com/${userName}`}
+        target="_blank"
+        rel="noreferrer"
       >
         <svg
           viewBox="0 0 100 100"
@@ -142,15 +79,14 @@ const Graph = (props) => {
         </div>
       </div>
 
-      {calenderWeeks}
+      <CalendarWeeks formatData={formatData} props={props} />
       <div className="react-github-activity-calendar-bottom-row">
         <a
           className="react-github-activity-calendar-bottom-row__link"
           href={`https://github.com/${props.userName}`}
         >
           <span>
-            {formatData?.totalContributions} contributions in the last
-            year&#160;
+            {apiData?.totalContributions} contributions in the last year&#160;
           </span>
         </a>
         <div className="react-github-activity-calendar-less-more-container">
@@ -175,5 +111,13 @@ const Graph = (props) => {
       </div>
     </div>
   );
+};
+
+// Type-check your props
+Graph.propTypes = {
+  userName: PropTypes.string.isRequired,
+  githubApiKey: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  backgroundColor: PropTypes.string,
 };
 export default Graph;
