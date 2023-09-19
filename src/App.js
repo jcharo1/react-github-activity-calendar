@@ -3,9 +3,9 @@
 import Graph from "./lib/components/Graph";
 
 export default function App() {
-  const githubApiKey = "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"; // <your-github-api-key>
+  const githubApiKey = ""; // <your-github-api-key>
 
-  const githubUserName = "jcharo1"; // <github-username>
+  const githubUserName = ""; // <github-username>
   const bgcolor = "";
   const textColor = "";
   return (
