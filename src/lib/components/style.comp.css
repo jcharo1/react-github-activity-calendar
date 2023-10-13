@@ -11,7 +11,6 @@
 
 .react-github-activity-calendar-container {
   max-width: 1053px;
-  width: 100%;
   color: white;
   display: grid;
   grid-template-rows: [first-row-start] min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr [last-row-end];
