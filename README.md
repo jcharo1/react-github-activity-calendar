@@ -1,3 +1,9 @@
+![npm](https://img.shields.io/npm/dm/react-github-activity-calendar)
+[![npm](https://img.shields.io/npm/v/react-github-activity-calendar)](https://www.npmjs.com/package/react-github-activity-calendar)
+[![Made by Justin Charo](https://img.shields.io/badge/Made%20by-Justin%20Charo-blue)](https://justin.charo.gg/)
+[![npm version](https://badge.fury.io/js/react-github-activity-calendar.svg)](https://badge.fury.io/js/react-github-activity-calendar)
+![npm](https://img.shields.io/npm/dm/react-toastified)
+
 # React Github Activity Calendar
 
 React component for displaying a user's Github activity in a calendar format.
