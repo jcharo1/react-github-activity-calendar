@@ -1,5 +1,11 @@
 import React from "react";
-import { getColor, months, DayName, requestOptions } from "./functions.js";
+import {
+  getColor,
+  months,
+  DayName,
+  requestOptions,
+  getAllContributionsByYear,
+} from "./functions.js";
 import { useEffect, useState } from "react";
 import "./style.css";
 
@@ -10,13 +16,22 @@ const Graph = (props) => {
   useEffect(() => {
     const getData = async () => {
       try {
+        const rest = await getAllContributionsByYear(
+          props.userName,
+          props.githubApiKey
+        );
+        // const rest = await getUserContributionsFromStart(
+        //   props.userName,
+        //   props.githubApiKey
+        // );
+        console.log("🚀 ~ getData ~ rest:", rest);
         fetch(
           "https://api.github.com/graphql",
           requestOptions(props.userName, props.githubApiKey)
         )
           .then((response) => response.json())
           .then((result) => {
-            // console.log(result);
+            console.log(result);
 
             setApiCall(result.data);
             setloading(true);
@@ -26,8 +41,9 @@ const Graph = (props) => {
         console.log(e);
       }
     };
-
-    getData();
+    if (props.githubApiKey && props.userName) {
+      getData();
+    }
   }, [props.githubApiKey, props.userName]);
 
   if (loading) {

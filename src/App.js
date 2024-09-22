@@ -3,8 +3,8 @@
 import Graph from "./lib/components/Graph";
 
 export default function App() {
-  const githubApiKey = ""; // <your-github-api-key>
-  const githubUserName = ""; // <github-username>
+  const githubApiKey = process.env.REACT_APP_PUBLIC_GITHUB; // <your-github-api-key>
+  const githubUserName = "jcharo1"; // <github-username>
   const bgcolor = "";
   const textColor = "";
 
