@@ -1,32 +1,46 @@
 .react-github-activity-calendar-bg-day {
-  background-color: #272b33; }
-  .react-github-activity-calendar-bg-day--L1 {
-    background-color: #0e4429; }
-  .react-github-activity-calendar-bg-day--L2 {
-    background-color: #006d32; }
-  .react-github-activity-calendar-bg-day--L3 {
-    background-color: #26a641; }
-  .react-github-activity-calendar-bg-day--L4 {
-    background-color: #39d353; }
+  background-color: #272b33;
+}
+.react-github-activity-calendar-bg-day--L1 {
+  background-color: #0e4429;
+}
+.react-github-activity-calendar-bg-day--L2 {
+  background-color: #006d32;
+}
+.react-github-activity-calendar-bg-day--L3 {
+  background-color: #26a641;
+}
+.react-github-activity-calendar-bg-day--L4 {
+  background-color: #39d353;
+}
 
 .react-github-activity-calendar-container {
   max-width: 1053px;
   color: white;
   display: grid;
   grid-template-rows: [first-row-start] min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr [last-row-end];
-  grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(53, 15px) [calender-end];
+  grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(
+      53,
+      15px
+    ) [calender-end];
   column-gap: 4px;
   row-gap: 4px;
   border-radius: 1rem;
   padding: 5px 10px 5px 10px;
   background: rgba(51, 51, 51, 0.99);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.3); }
-  @media only screen and (max-width: 75em) {
-    .react-github-activity-calendar-container {
-      grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(53, 10px) [calender-end];
-      overflow: hidden;
-      overflow-x: scroll; } }
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+@media only screen and (max-width: 75em) {
+  .react-github-activity-calendar-container {
+    grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(
+        53,
+        10px
+      ) [calender-end];
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+}
 
 .react-github-activity-calendar-calender-day-label {
   grid-column: first-col-start/first-col-end;
@@ -35,35 +49,51 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center; }
-  .react-github-activity-calendar-calender-day-label__name {
-    font-size: 10px;
-    transform: translateY(-100%); }
+  align-items: center;
+}
+.react-github-activity-calendar-calender-day-label__name {
+  font-size: 10px;
+  transform: translateY(-100%);
+}
 
 .react-github-activity-calendar-calender-week {
   grid-row: 2/-1;
   display: grid;
-  grid-template-columns: 15px;
-  grid-template-rows: [first-row-start] minmax(15px, min-content) [first-row-end] repeat(6, minmax(15px, min-content));
-  row-gap: 2.5px; }
-  @media only screen and (max-width: 75em) {
-    .react-github-activity-calendar-calender-week {
-      grid-template-rows: [first-row-start] minmax(10px, min-content) [first-row-end] repeat(6, minmax(10px, min-content));
-      grid-template-columns: 10px; } }
-  .react-github-activity-calendar-calender-week__month {
-    margin-left: 12px;
-    grid-column: span 1;
-    grid-row: 1 / span 1;
-    font-size: 10px;
-    display: grid;
-    grid-template-columns: 45px;
-    column-gap: 10px; }
+  grid-template-columns: 10px;
+  grid-template-rows: [first-row-start] minmax(10px, min-content) [first-row-end] repeat(
+      6,
+      minmax(10px, min-content)
+    );
+  row-gap: 2.5px;
+}
+@media only screen and (max-width: 75em) {
+  .react-github-activity-calendar-calender-week {
+    grid-template-rows: [first-row-start] minmax(10px, min-content) [first-row-end] repeat(
+        6,
+        minmax(10px, min-content)
+      );
+    grid-template-columns: 10px;
+  }
+}
+.react-github-activity-calendar-calender-week__month {
+  margin-left: 12px;
+  grid-column: span 1;
+  grid-row: 1 / span 1;
+  font-size: 10px;
+  display: grid;
+  grid-template-columns: 45px;
+  column-gap: 10px;
+}
 
-.react-github-activity-calendar-container:hover > .react-github-activity-calendar-calender-week > .react-github-activity-calendar-calender-day:not(:hover) {
-  transition: opacity .9s; }
+.react-github-activity-calendar-container:hover
+  > .react-github-activity-calendar-calender-week
+  > .react-github-activity-calendar-calender-day:not(:hover) {
+  transition: opacity 0.9s;
+}
 
 div.react-github-activity-calendar-remove-outline {
-  outline: none; }
+  outline: none;
+}
 
 .react-github-activity-calendar-calender-day {
   cursor: pointer;
@@ -74,61 +104,82 @@ div.react-github-activity-calendar-remove-outline {
   opacity: 1;
   outline: 1px inset rgba(33, 33, 33, 0.1);
   border: 1px solid rgba(33, 33, 33, 0.1);
-  transition: all 10s; }
-  .react-github-activity-calendar-calender-day:hover {
-    transition: all 10s; }
-  .react-github-activity-calendar-calender-day:hover > .react-github-activity-calendar-calender-day__text-container {
-    opacity: 1;
-    visibility: visible;
-    background-color: white;
-    transform: translate(-49%, 0%) scaleY(1); }
-  .react-github-activity-calendar-calender-day__text-container {
-    position: absolute;
-    line-height: .9;
-    padding: 2px 5px;
-    color: black;
-    height: 20px;
-    top: -20px;
-    left: 50%;
-    transform: translate(-49%, 100%) scaleY(0);
-    background-color: black;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    z-index: 2;
-    visibility: hidden;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 75%, 49% 100%, 48% 75%, 0% 75%);
-    transition: all .5s;
-    transform-origin: top; }
-  .react-github-activity-calendar-calender-day__text {
-    align-self: center;
-    line-height: .9; }
+  transition: all 10s;
+}
+.react-github-activity-calendar-calender-day:hover {
+  transition: all 10s;
+}
+.react-github-activity-calendar-calender-day:hover
+  > .react-github-activity-calendar-calender-day__text-container {
+  opacity: 1;
+  visibility: visible;
+  background-color: white;
+  transform: translate(-49%, 0%) scaleY(1);
+}
+.react-github-activity-calendar-calender-day__text-container {
+  position: absolute;
+  line-height: 0.9;
+  padding: 2px 5px;
+  color: black;
+  height: 20px;
+  top: -20px;
+  left: 50%;
+  transform: translate(-49%, 100%) scaleY(0);
+  background-color: black;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  z-index: 2;
+  visibility: hidden;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    50% 75%,
+    49% 100%,
+    48% 75%,
+    0% 75%
+  );
+  transition: all 0.5s;
+  transform-origin: top;
+}
+.react-github-activity-calendar-calender-day__text {
+  align-self: center;
+  line-height: 0.9;
+}
 
 .react-github-activity-calendar-bottom-row {
   grid-row: -1;
-  grid-column: 2 /span end;
+  grid-column: 2 / span end;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 10px;
-  padding-top: 4px; }
-  .react-github-activity-calendar-bottom-row__link:link, .react-github-activity-calendar-bottom-row__link:visited {
-    color: currentColor;
-    text-decoration: none;
-    display: block; }
-    .react-github-activity-calendar-bottom-row__link:link:hover, .react-github-activity-calendar-bottom-row__link:visited:hover {
-      text-decoration: underline; }
+  padding-top: 4px;
+}
+.react-github-activity-calendar-bottom-row__link:link,
+.react-github-activity-calendar-bottom-row__link:visited {
+  color: currentColor;
+  text-decoration: none;
+  display: block;
+}
+.react-github-activity-calendar-bottom-row__link:link:hover,
+.react-github-activity-calendar-bottom-row__link:visited:hover {
+  text-decoration: underline;
+}
 
 .react-github-activity-calendar-example-size {
   width: 10px;
   height: 10px;
-  font-size: 10px; }
+  font-size: 10px;
+}
 
 .react-github-activity-calendar-less-more-container {
   display: flex;
   justify-content: space-evenly;
   gap: 5px;
-  align-items: center; }
+  align-items: center;
+}
 
 .react-github-activity-calendar-github-mark {
   grid-row: 1;
@@ -137,18 +188,22 @@ div.react-github-activity-calendar-remove-outline {
   display: inline-block;
   width: 12px;
   fill: currentColor;
-  height: 12px; }
+  height: 12px;
+}
 
 .react-github-activity-calendar-container::-webkit-scrollbar {
-  height: 4px; }
+  height: 4px;
+}
 
 .react-github-activity-calendar-container::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .react-github-activity-calendar-container::-webkit-scrollbar-thumb {
   border-radius: 20px;
   width: 10px;
   background-color: rgba(0, 109, 50, 0.8);
-  border: 0.4px solid rgba(0, 109, 50, 0.6); }
+  border: 0.4px solid rgba(0, 109, 50, 0.6);
+}

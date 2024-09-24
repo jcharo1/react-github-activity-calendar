@@ -201,8 +201,12 @@ export function getContributionsForYear(githubUserName, year, token) {
 export const createInitialWeeks = () => {
   const weeks = [];
   const today = new Date();
-  // Start from the beginning of the current year
-  const startDate = new Date(today.getFullYear(), 0, 1);
+  // Start from a year ago
+  const startDate = new Date(
+    today.getFullYear() - 1,
+    today.getMonth(),
+    today.getDate()
+  );
 
   for (let w = 0; w < 52; w++) {
     const week = { contributionDays: [] };
@@ -216,5 +220,6 @@ export const createInitialWeeks = () => {
     }
     weeks.push(week);
   }
+  console.log("🚀 ~ createInitialWeeks ~ weeks", weeks);
   return weeks;
 };

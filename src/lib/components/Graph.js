@@ -209,10 +209,11 @@ import {
 const Graph = (props) => {
   // Initialize weeks with initial data
   const [weeks, setWeeks] = useState(createInitialWeeks());
-
+  const [hoveredDayIndex, setHoveredDayIndex] = useState(null);
   // State to track loading and total contributions
   const [loading, setLoading] = useState(true);
   const [totalContributions, setTotalContributions] = useState(0);
+  const [hoveredWeekIndex, setHoveredWeekIndex] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -249,7 +250,23 @@ const Graph = (props) => {
       getData();
     }
   }, [props.githubApiKey, props.userName]);
+  // Calculate neighbors based on indices (up, down, left, right, diagonals)
+  // const isNeighbor = (currentWeekIndex, currentDayIndex) => {
+  //   const weekDiff = Math.abs(currentWeekIndex - hoveredWeekIndex);
+  //   const dayDiff = Math.abs(currentDayIndex - hoveredDayIndex);
 
+  //   // Return true if within a circular region (neighboring cells)
+  //   return weekDiff <= 2 && dayDiff <= 1;
+  // };
+  const isNeighbor = (currentWeekIndex, currentDayIndex) => {
+    const weekDiff = Math.abs(currentWeekIndex - hoveredWeekIndex);
+    const dayDiff = Math.abs(currentDayIndex - hoveredDayIndex);
+
+    // Apply the scaling effect to neighbors but not the four corners
+    // Exclude if both weekDiff and dayDiff are equal to 1 (diagonally close), allow
+    // Exclude if both weekDiff and dayDiff are equal to 2 (corners)
+    return weekDiff <= 2 && dayDiff <= 2 && !(weekDiff === 2 && dayDiff === 2);
+  };
   // Define style options based on week index
   const getStyleOptions = (count) => {
     if (count <= 5) {
@@ -298,20 +315,26 @@ const Graph = (props) => {
       const bgOutline =
         dayCount === 0 ? "react-github-activity-calendar-remove-outline" : "";
       const bgColorClass = getColor(dayCount);
-
+      const condtion =
+        dayIndex >= hoveredDayIndex - 2 || dayIndex <= hoveredDayIndex + 2;
       return (
         <div
           key={`day-${weekIndex}-${dayIndex}`}
           className={`react-github-activity-calendar-calender-day ${
             loading && "react-github-activity-calendar-calender-day-loading"
           } ${bgColorClass} ${bgOutline} ${
-            Math.abs(weekIndex - weekIndexHovered) <= 2 &&
-            weekIndexHovered !== null
-              ? weekIndex === weekIndexHovered
-                ? ""
-                : "react-github-activity-calendar-bg-day-scale-down"
+            isNeighbor(weekIndex, dayIndex) && hoveredDayIndex !== null
+              ? "react-github-activity-calendar-bg-day-scale-down"
               : ""
           }`}
+          onMouseEnter={() => {
+            setHoveredDayIndex(dayIndex);
+            setHoveredWeekIndex(weekIndex);
+          }}
+          onMouseLeave={() => {
+            setHoveredDayIndex(null);
+            setHoveredWeekIndex(null);
+          }}
           style={{
             transitionDuration: "0.3s",
             transition: "transform 0.3s, box-shadow 0.3s",

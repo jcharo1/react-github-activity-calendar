@@ -1,5 +1,5 @@
 .react-github-activity-calendar-bg-day {
-  background-color: #272b3388;
+  background-color: #ffffff1d;
 }
 .react-github-activity-calendar-calender-day-loading {
   background-color: #ffffff3e;
@@ -65,6 +65,7 @@
   display: grid;
   grid-template-columns: 45px;
   column-gap: 10px;
+  align-content: center;
 }
 .react-github-activity-calendar-container:hover
   > .react-github-activity-calendar-calender-week
@@ -246,7 +247,7 @@ div.react-github-activity-calendar-remove-outline {
 
 /* Optional: Enhance the scaling effect */
 .react-github-activity-calendar-calender-day:hover {
-  transform: scale(1.05);
+  transform: scale(1.15);
   box-shadow: 0 6px 5px rgba(0, 0, 0, 0.7);
   z-index: 99999;
 }
@@ -265,6 +266,29 @@ div.react-github-activity-calendar-remove-outline {
   z-index: 99999;
 }
 .react-github-activity-calendar-bg-day-scale-down {
-  transform: scale(0.3);
+  transform: scale(0.7) translateY(10px);
   box-shadow: none;
+}
+/* Optional: Enhanced floating */
+@keyframes floatEnhanced {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-1.5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.react-github-activity-calendar-calender-day:hover {
+  animation: floatEnhanced 2s ease-in-out infinite;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
