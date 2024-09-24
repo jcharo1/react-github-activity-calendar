@@ -197,3 +197,24 @@ export function getContributionsForYear(githubUserName, year, token) {
       console.error(`Error fetching contributions for ${year}:`, error);
     });
 }
+// utils/createInitialWeeks.js
+export const createInitialWeeks = () => {
+  const weeks = [];
+  const today = new Date();
+  // Start from the beginning of the current year
+  const startDate = new Date(today.getFullYear(), 0, 1);
+
+  for (let w = 0; w < 52; w++) {
+    const week = { contributionDays: [] };
+    for (let d = 0; d < 7; d++) {
+      const date = new Date(startDate);
+      date.setDate(startDate.getDate() + w * 7 + d);
+      week.contributionDays.push({
+        date: date.toISOString().split("T")[0], // Format: YYYY-MM-DD
+        contributionCount: 0, // Default contribution count
+      });
+    }
+    weeks.push(week);
+  }
+  return weeks;
+};
