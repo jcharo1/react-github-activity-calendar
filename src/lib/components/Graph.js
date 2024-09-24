@@ -276,7 +276,7 @@ const Graph = (props) => {
   };
 
   let count = 0;
-
+  const [weekIndexHovered, setWeekIndexHovered] = useState(null);
   const calendarWeeks = weeks.map((week, weekIndex) => {
     let displayMonth;
     count += 1;
@@ -304,11 +304,18 @@ const Graph = (props) => {
           key={`day-${weekIndex}-${dayIndex}`}
           className={`react-github-activity-calendar-calender-day ${
             loading && "react-github-activity-calendar-calender-day-loading"
-          } ${bgColorClass} ${bgOutline}`}
+          } ${bgColorClass} ${bgOutline} ${
+            Math.abs(weekIndex - weekIndexHovered) <= 2 &&
+            weekIndexHovered !== null
+              ? weekIndex === weekIndexHovered
+                ? ""
+                : "react-github-activity-calendar-bg-day-scale-down"
+              : ""
+          }`}
           style={{
-            transitionDuration: "0.5s",
-            transition: "background-color 0.5s",
-            transitionDelay: `${(dayIndex % 7) * 0.1}s`,
+            transitionDuration: "0.3s",
+            transition: "transform 0.3s, box-shadow 0.3s",
+            transitionDelay: !loading ? `${0.1}s` : `${(dayIndex % 7) * 0.1}s`,
           }}
         >
           <div
@@ -331,14 +338,28 @@ const Graph = (props) => {
         <div className="react-github-activity-calendar-calender-week__month ">
           {displayMonth}
         </div>
-        {/* )} */}
-        <div className="react-github-activity-calendar-calender-week">
+        {/* /* )} */}
+        <div
+          // style={{
+          //   backgroundColor:
+          //     Math.abs(weekIndex - weekIndexHovered) <= 3 ? "red" : "yellow",
+          // }}
+          onMouseEnter={() => {
+            setWeekIndexHovered(weekIndex);
+          }}
+          onMouseLeave={() => {
+            setWeekIndexHovered(null);
+          }}
+          className="react-github-activity-calendar-calender-week"
+        >
           {weekDays}
         </div>
       </React.Fragment>
     );
   });
-
+  useEffect(() => {
+    console.log("weekIndexHovered", weekIndexHovered);
+  }, [weekIndexHovered]);
   return (
     <div
       className="react-github-activity-calendar-container"

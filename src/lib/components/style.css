@@ -1,5 +1,5 @@
 .react-github-activity-calendar-bg-day {
-  background-color: #272b33;
+  background-color: #272b3388;
 }
 .react-github-activity-calendar-calender-day-loading {
   background-color: #ffffff3e;
@@ -81,6 +81,8 @@ div.react-github-activity-calendar-remove-outline {
   border-radius: 2px;
   position: relative;
   opacity: 1;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+
   /* outline: 1px inset rgba(33, 33, 33, 0.1); */
   border: 1px solid rgba(33, 33, 33, 0.1);
   transition: all 10s;
@@ -187,4 +189,82 @@ div.react-github-activity-calendar-remove-outline {
   width: 10px;
   background-color: rgba(0, 109, 50, 0.8);
   border: 0.4px solid rgba(0, 109, 50, 0.6);
+}
+
+/* .react-github-activity-calendar-calender-day:hover {
+  animation: float 1s ease-in-out infinite alternate;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+/* Optional enhanced floating */
+@keyframes floatEnhanced {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.react-github-activity-calendar-calender-day-loading {
+  animation: floatEnhanced 2s ease-in-out infinite;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.react-github-activity-calendar-calender-day {
+  cursor: pointer;
+  font-size: 4px;
+  text-align: center;
+  border-radius: 2px;
+  position: relative;
+  opacity: 1;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(33, 33, 33, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.react-github-activity-calendar-calender-day:hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Existing hover styles... */
+}
+
+/* .react-github-activity-calendar-container:hover
+  .react-github-activity-calendar-calender-day:not(:hover) {
+  transform: scale(0.9);
+
+  box-shadow: none;
+} */
+
+/* Optional: Enhance the scaling effect */
+.react-github-activity-calendar-calender-day:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+}
+/* Respect user's reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .react-github-activity-calendar-calender-day:hover {
+    animation: none;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.react-github-activity-calendar-bg-day-scale {
+  transform: scale(1.05);
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+}
+.react-github-activity-calendar-bg-day-scale-down {
+  transform: scale(0.3);
+  box-shadow: none;
 }
