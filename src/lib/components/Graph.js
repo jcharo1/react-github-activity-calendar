@@ -313,7 +313,7 @@ const Graph = (props) => {
         <div
           key={`day-${weekIndex}-${dayIndex}`}
           className={`react-github-activity-calendar-calender-day ${
-            loading
+            true
               ? "react-github-activity-calendar-calender-day-loading  shimmer"
               : " react-github-activity-calendar-calender-day-transition"
           } ${bgColorClass} ${bgOutline} ${

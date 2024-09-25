@@ -19,10 +19,9 @@
   color: white;
   display: grid;
   grid-template-rows: [first-row-start] min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr [last-row-end];
-  grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(
-      53,
-      15px
-    ) [calender-end];
+  grid-template-columns:
+    [first-col-start] 20px [first-col-end calender-start] repeat(53, 15px)
+    [calender-end];
   column-gap: 4px;
   row-gap: 4px;
   border-radius: 1rem;
@@ -33,10 +32,9 @@
 }
 @media only screen and (max-width: 75em) {
   .react-github-activity-calendar-container {
-    grid-template-columns: [first-col-start] 20px [first-col-end calender-start] repeat(
-        53,
-        10px
-      ) [calender-end];
+    grid-template-columns:
+      [first-col-start] 20px [first-col-end calender-start] repeat(53, 10px)
+      [calender-end];
     overflow: hidden;
     overflow-x: scroll;
   }
