@@ -250,14 +250,7 @@ const Graph = (props) => {
       getData();
     }
   }, [props.githubApiKey, props.userName]);
-  // Calculate neighbors based on indices (up, down, left, right, diagonals)
-  // const isNeighbor = (currentWeekIndex, currentDayIndex) => {
-  //   const weekDiff = Math.abs(currentWeekIndex - hoveredWeekIndex);
-  //   const dayDiff = Math.abs(currentDayIndex - hoveredDayIndex);
 
-  //   // Return true if within a circular region (neighboring cells)
-  //   return weekDiff <= 2 && dayDiff <= 1;
-  // };
   const isNeighbor = (currentWeekIndex, currentDayIndex) => {
     const weekDiff = Math.abs(currentWeekIndex - hoveredWeekIndex);
     const dayDiff = Math.abs(currentDayIndex - hoveredDayIndex);
@@ -315,13 +308,14 @@ const Graph = (props) => {
       const bgOutline =
         dayCount === 0 ? "react-github-activity-calendar-remove-outline" : "";
       const bgColorClass = getColor(dayCount);
-      const condtion =
-        dayIndex >= hoveredDayIndex - 2 || dayIndex <= hoveredDayIndex + 2;
+
       return (
         <div
           key={`day-${weekIndex}-${dayIndex}`}
           className={`react-github-activity-calendar-calender-day ${
-            loading && "react-github-activity-calendar-calender-day-loading"
+            loading
+              ? "react-github-activity-calendar-calender-day-loading  shimmer"
+              : " react-github-activity-calendar-calender-day-transition"
           } ${bgColorClass} ${bgOutline} ${
             isNeighbor(weekIndex, dayIndex) && hoveredDayIndex !== null
               ? "react-github-activity-calendar-bg-day-scale-down"
@@ -336,9 +330,9 @@ const Graph = (props) => {
             setHoveredWeekIndex(null);
           }}
           style={{
-            transitionDuration: "0.3s",
-            transition: "transform 0.3s, box-shadow 0.3s",
-            transitionDelay: !loading ? `${0.1}s` : `${(dayIndex % 7) * 0.1}s`,
+            "--animation-delay": `${(dayIndex % 7) * 0.1 + weekIndex * 0.1}s`,
+            // transition: "transform 0.3s, box-shadow 0.3s",
+            transitionDelay: `${(dayIndex % 7) * 0.07}s`,
           }}
         >
           <div
@@ -380,9 +374,7 @@ const Graph = (props) => {
       </React.Fragment>
     );
   });
-  useEffect(() => {
-    console.log("weekIndexHovered", weekIndexHovered);
-  }, [weekIndexHovered]);
+
   return (
     <div
       className="react-github-activity-calendar-container"

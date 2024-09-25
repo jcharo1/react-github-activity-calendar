@@ -16,6 +16,12 @@
 .react-github-activity-calendar-bg-day--L4 {
   background-color: #39d353;
 }
+.react-github-activity-calendar-calender-day-transition {
+  transition: all 0.3s;
+}
+.max-week-contribution {
+  background-color: #440e0e;
+}
 .react-github-activity-calendar-container {
   max-width: 1053px;
   color: white;
@@ -70,7 +76,7 @@
 .react-github-activity-calendar-container:hover
   > .react-github-activity-calendar-calender-week
   > .react-github-activity-calendar-calender-day:not(:hover) {
-  transition: opacity 0.9s;
+  transition: opacity 0.9s all 0.2s;
 }
 div.react-github-activity-calendar-remove-outline {
   outline: none;
@@ -86,10 +92,10 @@ div.react-github-activity-calendar-remove-outline {
 
   /* outline: 1px inset rgba(33, 33, 33, 0.1); */
   border: 1px solid rgba(33, 33, 33, 0.1);
-  transition: all 10s;
+  /* transition: all 10s; */
 }
 .react-github-activity-calendar-calender-day:hover {
-  transition: all 2s;
+  transition: all 0.1s;
 }
 .react-github-activity-calendar-calender-day:hover
   > .react-github-activity-calendar-calender-day__text-container {
@@ -230,12 +236,7 @@ div.react-github-activity-calendar-remove-outline {
   opacity: 1;
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(33, 33, 33, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.react-github-activity-calendar-calender-day:hover {
-  transition: transform 0.3s, box-shadow 0.3s;
-  /* Existing hover styles... */
+  /* transition: transform 0.3s, box-shadow 0.3s; */
 }
 
 /* .react-github-activity-calendar-container:hover
@@ -291,4 +292,48 @@ div.react-github-activity-calendar-remove-outline {
 .react-github-activity-calendar-calender-day:hover {
   animation: floatEnhanced 2s ease-in-out infinite;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.react-github-activity-calendar-calender-day:focus {
+  animation: float 1s ease-in-out infinite alternate;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  outline: none; /* Remove default outline */
+  border: 2px solid #000; /* Add custom focus indicator */
+}
+/* Shimmer Overlay Class */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: #8c8c8c00;
+  border-radius: 4px;
+}
+
+/* Pseudo-element for the Shimmer Effect */
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(192, 192, 192, 0.397) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shimmerAnimation 1.5s infinite;
+  animation-delay: var(--animation-delay, 0s);
+  pointer-events: none;
+}
+
+/* Keyframes for the Shimmer Animation */
+@keyframes shimmerAnimation {
+  0% {
+    transform: translateX(0) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-20deg);
+  }
 }
