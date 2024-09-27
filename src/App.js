@@ -24,6 +24,7 @@ export default function App() {
         githubApiKey={githubApiKey}
         backgroundColor={bgcolor}
         color={textColor}
+        enableAnimations={false}
       />
     </div>
   );
