@@ -313,7 +313,7 @@ const Graph = (props) => {
         <div
           key={`day-${weekIndex}-${dayIndex}`}
           className={`react-github-activity-calendar-calender-day ${
-            true
+            loading
               ? "react-github-activity-calendar-calender-day-loading  shimmer"
               : " react-github-activity-calendar-calender-day-transition"
           } ${bgColorClass} ${bgOutline} ${
@@ -384,7 +384,7 @@ const Graph = (props) => {
       }}
     >
       <a
-        className="react-github-activity-calendar-github-mark"
+        className="react-github-activity-calendar-github-mark first-column"
         href={`https://github.com/${props.userName}`}
       >
         {/* GitHub SVG Icon */}
@@ -398,7 +398,7 @@ const Graph = (props) => {
         </svg>
       </a>
 
-      <div className="react-github-activity-calendar-calender-day-label">
+      <div className="react-github-activity-calendar-calender-day-label first-column">
         <div className="react-github-activity-calendar-calender-day-label__name">
           Mon
         </div>
@@ -412,9 +412,9 @@ const Graph = (props) => {
 
       {calendarWeeks}
 
-      <div className="react-github-activity-calendar-bottom-row">
+      <div className="react-github-activity-calendar-bottom-row ">
         <a
-          className="react-github-activity-calendar-bottom-row__link"
+          className="react-github-activity-calendar-bottom-row__link first-column"
           href={`https://github.com/${props.userName}`}
         >
           <span>{totalContributions} contributions in the last year&nbsp;</span>
