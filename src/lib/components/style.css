@@ -71,6 +71,8 @@
   z-index: 1; /* Ensure it stays on top of other columns */
   width: 100%;
   height: 100%;
+  margin-left: 2px;
+  /* margin-right: 10px; */
 }
 .react-github-activity-calendar-calender-day-label {
   grid-column: first-col-start/first-col-end;
@@ -128,12 +130,15 @@ div.react-github-activity-calendar-remove-outline {
 }
 .react-github-activity-calendar-calender-day:hover {
   transition: all 0.1s;
+  background-color: #39d353;
+  border-color: currentColor;
 }
 .react-github-activity-calendar-calender-day:hover
   > .react-github-activity-calendar-calender-day__text-container {
   opacity: 1;
   visibility: visible;
   background-color: white;
+  z-index: 1;
   transform: translate(-49%, 0%) scaleY(1);
 }
 .react-github-activity-calendar-calender-day__text-container {
@@ -141,18 +146,18 @@ div.react-github-activity-calendar-remove-outline {
   line-height: 0.9;
   padding: 2px 5px;
   color: black;
-  height: 20px;
+  /* height: 20px; */
   top: -20px;
   left: 50%;
   transform: translate(-49%, 100%) scaleY(0);
-  background-color: black;
+  /* background-color: black; */
   font-size: 12px;
   white-space: nowrap;
   opacity: 0;
   z-index: 2;
-  outline: 1px inset #0e4429;
+  /* outline: 1px inset #0e4429; */
   visibility: hidden;
-  clip-path: polygon(
+  /* clip-path: polygon(
     0% 0%,
     100% 0%,
     100% 75%,
@@ -160,7 +165,9 @@ div.react-github-activity-calendar-remove-outline {
     49% 100%,
     48% 75%,
     0% 75%
-  );
+  ); */
+  /* background-color: white; */
+  border-radius: 0.4rem;
   transition: all 0.5s;
   transform-origin: top;
 }
@@ -180,6 +187,7 @@ div.react-github-activity-calendar-remove-outline {
   /* padding-top: 4px; */
   margin-top: 2px;
   margin-left: 5px;
+  margin-bottom: 2px;
 }
 .react-github-activity-calendar-bottom-row__link:link,
 .react-github-activity-calendar-bottom-row__link:visited {
