@@ -28,6 +28,7 @@ const Graph = (props) => {
   const [totalContributions, setTotalContributions] = useState(0);
   const [hoveredWeekIndex, setHoveredWeekIndex] = useState(null);
 
+  const [focusedDays, setFocusedDays] = useState([]);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -70,24 +71,18 @@ const Graph = (props) => {
 
   // Define style options based on week index
   const getStyleOptions = (count) => {
+    const styleOptions = {
+      backgroundColor: color || "",
+      color: backgroundColor || "",
+    };
+
     if (count <= 5) {
-      return {
-        backgroundColor: color || "",
-        color: backgroundColor || "",
-        transform: "translate(0%, 0%) scaleY(1)",
-      };
-    } else if (count <= 48) {
-      return {
-        backgroundColor: color || "",
-        color: backgroundColor || "",
-      };
-    } else {
-      return {
-        backgroundColor: color || "",
-        color: backgroundColor || "",
-        transform: "translate(-100%, 0%) scaleY(1)",
-      };
+      styleOptions.transform = "translate(0%, 0%) scaleY(1)";
+    } else if (count > 48) {
+      styleOptions.transform = "translate(-100%, 0%) scaleY(1)";
     }
+
+    return styleOptions;
   };
 
   let count = 0;
@@ -161,6 +156,7 @@ const Graph = (props) => {
           className={dayClassNames}
           {...eventHandlers}
           style={dayStyles}
+          onClick={() => {}}
         >
           <div
             className="react-github-activity-calendar-calender-day__text-container"

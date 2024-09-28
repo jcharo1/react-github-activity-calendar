@@ -22,27 +22,7 @@
 .max-week-contribution {
   background-color: #440e0e;
 }
-/* .react-github-activity-calendar-container {
-  max-width: 1053px;
-  color: white;
-  display: grid;
-  grid-template-rows: [first-row-start] min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr [last-row-end];
-  grid-template-columns:
-    [first-col-start] 20px [first-col-end calender-start] repeat(
-      auto-fill,
-      15px
-    )
-    [calender-end];
-  column-gap: 4px;
-  row-gap: 4px;
-  border-radius: 1rem;
-  padding: 5px 10px 5px 10px;
-  overflow: hidden;
-  overflow-x: scroll;
-  background: rgba(51, 51, 51, 0.99);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-} */
+
 .react-github-activity-calendar-container {
   max-width: 1053px;
   color: white;
@@ -50,13 +30,13 @@
   display: grid;
   grid-template-rows: [first-row-start] min-content [first-row-end second-row-start] min-content [second-row-end last-row-start] 1fr [last-row-end];
   grid-template-columns:
-    [first-col-start] 20px [first-col-end calender-start] repeat(53, 15px)
+    [first-col-start] 25px [first-col-end calender-start] repeat(53, 15px)
     [calender-end];
   column-gap: 2px;
   /* row-gap: 2px; */
   border-radius: 0.4rem;
-  padding: 2.5px 5px 2.5px 5px;
-  overflow: hidden;
+  /* padding: 2.5px 5px 2.5px 5px; */
+  /* overflow: hidden; */
   overflow-x: scroll;
   background: rgba(51, 51, 51, 0.99);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
@@ -131,7 +111,7 @@ div.react-github-activity-calendar-remove-outline {
 }
 .react-github-activity-calendar-calender-day:hover {
   transition: all 0.1s;
-  background-color: #39d353;
+  /* background-color: #39d353; */
   border-color: currentColor;
 }
 .react-github-activity-calendar-calender-day:hover
@@ -213,7 +193,7 @@ div.react-github-activity-calendar-remove-outline {
   align-items: center;
 }
 .react-github-activity-calendar-github-mark {
-  margin-top: 5px;
+  /* margin-top: 5px; */
   grid-row: 1;
   transform: translateY(-0%) scale(1);
   color: inherit;
