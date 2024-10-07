@@ -4,7 +4,7 @@ import Graph from "./lib/components/Graph";
 
 export default function App() {
   const githubApiKey = process.env.REACT_APP_PUBLIC_GITHUB; // <your-github-api-key>
-  const githubUserName = "jcharo1"; // <github-username>
+  const githubUserName = ""; // <github-username>
   const bgcolor = "";
   const textColor = "";
 
@@ -24,7 +24,6 @@ export default function App() {
         githubApiKey={githubApiKey}
         backgroundColor={bgcolor}
         color={textColor}
-        // enableAnimations={false}
       />
     </div>
   );

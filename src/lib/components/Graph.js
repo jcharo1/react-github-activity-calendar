@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css"; // Import the styles
 import {
-  getAllContributionsByYear,
   requestOptions,
   getColor,
   DayName,
@@ -28,7 +27,6 @@ const Graph = (props) => {
   const [totalContributions, setTotalContributions] = useState(0);
   const [hoveredWeekIndex, setHoveredWeekIndex] = useState(null);
 
-  const [focusedDays, setFocusedDays] = useState([]);
   useEffect(() => {
     const getData = async () => {
       try {

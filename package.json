@@ -1,6 +1,6 @@
 {
   "name": "react-github-activity-calendar",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "keywords": [
     "react",
     "components",
@@ -52,9 +52,6 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^9.0.0",
-    "npm-run-all": "^4.1.5",
-    "react-scripts": "^5.0.1",
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
     "@babel/polyfill": "^7.12.1",
@@ -63,6 +60,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "react-scripts": "^5.0.1",
     "webpack-cli": "^3.0.4"
   },
   "browserslist": {

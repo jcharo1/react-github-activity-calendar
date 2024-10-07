@@ -128,10 +128,8 @@ export function getAllContributionsByYear(githubUserName, token) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("🚀 ~ .then ~ data:", data);
       const contributionYears =
         data.data.user.contributionsCollection.contributionYears;
-      console.log("Contribution Years:", contributionYears);
 
       // Loop through each year and fetch contributions
       contributionYears.forEach((year) => {
@@ -190,7 +188,6 @@ export function getContributionsForYear(githubUserName, year, token) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(`Contributions for ${year}:`, data);
       return data.data.user.contributionsCollection;
     })
     .catch((error) => {
@@ -220,6 +217,5 @@ export const createInitialWeeks = () => {
     }
     weeks.push(week);
   }
-  console.log("🚀 ~ createInitialWeeks ~ weeks", weeks);
   return weeks;
 };
