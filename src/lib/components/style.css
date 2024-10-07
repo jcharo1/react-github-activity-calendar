@@ -195,7 +195,7 @@ div.react-github-activity-calendar-remove-outline {
 .react-github-activity-calendar-github-mark {
   /* margin-top: 5px; */
   grid-row: 1;
-  transform: translateY(-0%) scale(1);
+  transform: translateY(1px) scale(1);
   color: inherit;
   justify-self: start;
   display: inline-block;
@@ -203,14 +203,14 @@ div.react-github-activity-calendar-remove-outline {
   fill: currentColor;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 .react-github-activity-calendar-github-mark:hover {
   /* svg {
     
   } */
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform: translateY(-2px) scale(1.2);
+  transform: translateY(0px) scale(1);
 }
 .react-github-activity-calendar-container::-webkit-scrollbar {
   height: 0px;
