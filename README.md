@@ -43,6 +43,7 @@ function App() {
         backgroundColor={bgcolor}
         githubApiKey={githubApiKey}
         color={textColor}
+        enableAnimations={false} // optional prop to disable animations
       />
     </div>
   );
